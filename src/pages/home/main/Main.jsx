@@ -14,7 +14,7 @@ const Main = () => (
       </p>
     </header>
 
-    <section class="container">
+    <main class="container">
       {deals.map((sale) => (
         <>
           <img
@@ -22,7 +22,7 @@ const Main = () => (
             src={sale.deal}
             alt="deals.img"
           />
-          <main class="sub-container">
+          <section class="sub-container">
             {sale.data.map((item) => (
               <>
                 <a href="#">
@@ -32,10 +32,10 @@ const Main = () => (
                 </a>
               </>
             ))}
-          </main>
+          </section>
         </>
       ))}
-    </section>
+    </main>
   </>
 );
 
