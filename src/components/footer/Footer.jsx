@@ -1,6 +1,7 @@
 import React from "react";
 import "./Footer.css";
 
+const items = ["Men", "Women", "Kids", "Home & Living", "Beauty"];
 const Footer = () => (
   <>
     <footer class="main-footer">
@@ -9,31 +10,15 @@ const Footer = () => (
           <u>Online Shopping</u>
         </h2>
         <ul class="stacked-list">
-          <li class="list-item">
-            <a class="link" href="" target="_blank">
-              <small>Men</small>
-            </a>
-          </li>
-          <li class="list-item">
-            <a class="link" href="" target="_blank">
-              <small>Women</small>
-            </a>
-          </li>
-          <li class="list-item">
-            <a class="link" href="" target="_blank">
-              <small>Kids</small>
-            </a>
-          </li>
-          <li class="list-item">
-            <a class="link" href="" target="_blank">
-              <small>Home & Living</small>
-            </a>
-          </li>
-          <li class="list-item">
-            <a class="link" href="" target="_blank">
-              <small>Beauty</small>
-            </a>
-          </li>
+          {items.map((item) => (
+            <>
+              <li class="list-item">
+                <a class="link" href="" target="_blank">
+                  <small>{item}</small>
+                </a>
+              </li>
+            </>
+          ))}
         </ul>
       </div>
 
