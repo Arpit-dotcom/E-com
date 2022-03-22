@@ -1,6 +1,5 @@
 import "./App.css";
-import { Product } from "./pages/pagesIndex";
-
+import { Product } from "./pages";
 
 function App() {
   return (

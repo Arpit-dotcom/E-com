@@ -43,48 +43,40 @@
 .material-icons{
   margin: 0 1.5rem;
 }
-
 .badge, .header-text, .num-items{
   position: absolute;
 }
-
 .profile .header-text{
   top: 1.5rem;
   left: 0.5rem;
 }
-
 .wishlist .header-text{
   top: 1.5rem;
   left: 5.3rem;
 }
-
 .cart .header-text{
   top: 1.5rem;
-  right: 1.3rem;
+   right: 1.3rem;
 }
 
 .wishlist .badge{
   top: -1rem;
   right: 3.5rem;
 }
-
 .cart .badge, .cart .num-items{
   top: -1rem;
   right: -1.3rem;
 }
-
 .wishlist .num-items{
   color: var(--primary-color);
   top: -1rem;
   right: 5.5rem;
 }
-
 .cart .num-items{
   color: var(--primary-color);
   top: -1rem;
   right: 0.7rem;
 }
-
 
 .sub-container {
   display: flex;

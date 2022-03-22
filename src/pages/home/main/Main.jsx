@@ -1,4 +1,4 @@
-import { deals } from "./dump";
+import { deals } from "../../../staticData/data";
 
 const Main = () => (
   <>
