@@ -1,4 +1,4 @@
-import { carts } from "../../../staticData/data";
+import { carts } from "staticData/data";
 
 const Main = () => (
   <>

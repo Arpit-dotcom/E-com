@@ -1,6 +1,6 @@
-import { Footer, Navbar } from "../../components";
-import "./Cart.css"
+import { Footer, Navbar } from "components";
 import { Main } from "./main/Main";
+import "styles/Cart.css"
 
 const Cart = () => (
   <>

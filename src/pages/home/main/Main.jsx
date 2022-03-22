@@ -1,4 +1,4 @@
-import { deals } from "../../../staticData/data";
+import { deals } from "staticData/data";
 
 const Main = () => (
   <>

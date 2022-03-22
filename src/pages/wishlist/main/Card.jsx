@@ -1,4 +1,4 @@
-import {wishlists} from "../../../staticData/data"
+import {wishlists} from "staticData/data"
 
 const Card = () => (
   <>

@@ -1,7 +1,6 @@
-import React from "react";
-import "./Home.css";
-import { Navbar, Footer } from "../../components";
-import {Main} from "./main/Main"
+import { Navbar, Footer } from "components";
+import {Main} from "./main/Main";
+import "styles/Home.css";
 
 export const Home = () =>{ 
   return (

@@ -1,6 +1,6 @@
 import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
-import { products } from "../../../staticData/data";
+import { products } from "staticData/data";
 
 const Main = () => (
   <>
