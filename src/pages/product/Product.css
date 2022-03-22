@@ -1,0 +1,36 @@
+.container{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+.drawer{
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.drawer .heading{
+    margin: .5rem;
+    text-align: left;
+}
+
+.main-content{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.card{
+    background-color: var(--white-section);
+    padding: 0;
+    width: 12rem;
+    height: 15rem;
+}
+.card-text{
+    padding: 0 1rem;
+}
+
+.img{
+    object-fit: cover;
+    height: 70%;
+    border-radius: 1rem 1rem 0 0;
+}
