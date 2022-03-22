@@ -1,10 +1,10 @@
 import "./App.css";
-import { Product } from "./pages";
+import { Cart } from "./pages";
 
 function App() {
   return (
     <div className="App">
-      <Product />
+      <Cart />
     </div>
   );
 }
