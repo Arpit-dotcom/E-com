@@ -1,5 +1,5 @@
 import "./Product.css";
-import { Navbar, Footer } from "../../components/componentIndex";
+import { Navbar, Footer } from "../../components";
 import { Main } from "./main/Main";
 
 const Product = () => (

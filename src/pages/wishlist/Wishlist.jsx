@@ -1,4 +1,4 @@
-import {Navbar, Footer} from "../../components/componentIndex"
+import {Navbar, Footer} from "../../components"
 import { Main } from "./main/Main";
 import "./Wishlist.css";
 

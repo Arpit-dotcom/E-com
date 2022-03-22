@@ -1,4 +1,22 @@
-import {categories, ratings, sortBy, filterBy} from "./Dump"
+const categories = [
+  "Earings",
+  "Bracelet",
+  "Ring",
+  "Necklace & Chain",
+  "Pendant",
+  "Hair Appliance",
+];
+
+const ratings = [
+  "4 star and above",
+  "3 star and above",
+  "2 star and above",
+  "1 star and above",
+];
+
+const sortBy = ["Price - High to Low", "Price - Low to High"];
+
+const filterBy = ["Discount", "In Stock"];
 
 const Sidebar = () => (
   <>

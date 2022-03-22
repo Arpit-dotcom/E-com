@@ -1,23 +1,19 @@
 import { Header } from "./Header";
-import {Sidebar} from "./Sidebar";
-import {products} from "./Dump";
+import { Sidebar } from "./Sidebar";
+import { products } from "../../../staticData/data";
 
 const Main = () => (
   <>
     <Header />
 
-    <section class="container">
+    <section class="productContainer">
       <Sidebar />
 
       <main class="main-content">
         {products.map((product) => (
           <>
             <section class="card badge-card">
-              <img
-                class="img"
-                src={product}
-                alt="card-image"
-              />
+              <img class="img" src={product} alt="card-image" />
               <br />
               <div class="card-text">
                 <h2>BrandName</h2>
@@ -30,9 +26,8 @@ const Main = () => (
           </>
         ))}
       </main>
-      
     </section>
   </>
 );
 
-export {Main}
+export { Main };
