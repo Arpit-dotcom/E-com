@@ -10,14 +10,12 @@ const Navbar = () => (
         <h1 class="text">Shopzilla</h1>
       </div>
 
-      <div class="nav-list">
         <input
           class="nav-search"
           id="items-disabled"
           type="text"
           placeholder="Search for product, brands and more"
         />
-      </div>
 
       <div class="nav-list">
         <div class="list-item icons">
