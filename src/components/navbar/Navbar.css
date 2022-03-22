@@ -36,7 +36,10 @@
   color: var(--secondary-color);
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b3116ee69803f3ed10585e7a7f2317945025ec3e
 .icons > a{
   color: var(--secondary-color);
 }
@@ -79,6 +82,10 @@
   right: 0.7rem;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b3116ee69803f3ed10585e7a7f2317945025ec3e
 .sub-container {
   display: flex;
 }
