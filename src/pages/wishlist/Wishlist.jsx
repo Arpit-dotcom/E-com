@@ -1,5 +1,5 @@
-import {Navbar, Footer} from "../../components/componentIndex.js"
-import { Main } from "./main/Main.jsx";
+import {Navbar, Footer} from "../../components/componentIndex"
+import { Main } from "./main/Main";
 import "./Wishlist.css";
 
 const Wishlist = () => (
