@@ -1,6 +1,6 @@
-import {Navbar, Footer} from "../../components"
+import {Navbar, Footer} from "components"
 import { Main } from "./main/Main";
-import "./Wishlist.css";
+import "styles/Wishlist.css";
 
 const Wishlist = () => (
   <>

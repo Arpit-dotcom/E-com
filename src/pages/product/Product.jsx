@@ -1,6 +1,6 @@
-import "./Product.css";
-import { Navbar, Footer } from "../../components";
+import { Navbar, Footer } from "components";
 import { Main } from "./main/Main";
+import "styles/Product.css";
 
 const Product = () => (
   <>
