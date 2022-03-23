@@ -2,7 +2,7 @@ import "./App.css";
 import { Cart, Home, Login, Logout, Product, Signup, Wishlist } from "./pages";
 import { Routes, Route} from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Routes>

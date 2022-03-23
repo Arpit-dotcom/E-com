@@ -1,4 +1,4 @@
-import {wishlists} from "staticData/data"
+import { wishlists } from "staticData/data";
 
 const Card = () => (
   <>
@@ -25,6 +25,13 @@ const Card = () => (
                 </a>
               </div>
             </section>
+            <section class="card-footer">
+              <div class="icon">
+                <a class="favourite" href="#">
+                  <i class="fas fa-heart"></i> Remove from wishlist
+                </a>
+              </div>
+            </section>
           </section>
         </>
       ))}
@@ -32,4 +39,4 @@ const Card = () => (
   </>
 );
 
-export {Card}
+export { Card };
