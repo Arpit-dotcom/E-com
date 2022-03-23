@@ -1,0 +1,47 @@
+body {
+  font-size: 1.5rem;  
+  box-sizing: border-box;
+  background-color: var(--primary-color);
+}
+.signupContainer {
+  margin: auto;
+  margin-top: 5rem;
+  padding: 2rem;
+  background-color: var(--secondary-color);
+  width: 27rem;
+}
+
+.signupContainer .signin {
+  border: 1px solid thistle;
+  padding: 0.4rem 3rem;
+  text-align: center;
+  border-radius: 1rem;
+  text-decoration: none;
+  color: var(--default);
+}
+
+.signupContainer .inp {
+  margin: 1rem 0;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid var(--default);
+  text-decoration: none;
+  color: var(--default);
+}
+
+.signupContainer .submit {
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: 1px solid var(--default);
+  width: 100%;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0;
+}
+
+.signupContainer .signup-link{
+  color: var(--primary-color);
+}
