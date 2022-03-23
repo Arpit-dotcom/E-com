@@ -1,5 +1,5 @@
 import React from "react";
-import "./Footer.css";
+import "styles/Footer.css";
 
 const items = ["Men", "Women", "Kids", "Home & Living", "Beauty"];
 const Footer = () => (

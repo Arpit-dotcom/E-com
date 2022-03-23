@@ -1,18 +1,14 @@
-body {
-  font-size: 1.5rem;  
-  background-color: var(--primary-color);
-}
-
 .logoutContainer {
+  font-size: 1rem;
   margin: auto;
-  margin-top: 15rem;
+  margin-top: 12rem;
   padding: 2rem;
   background-color: var(--secondary-color);
   width: 25rem;
 }
 
 .logoutContainer .heading{
-  margin: 1rem;
+  margin: 2rem;
 }
 
 .logoutContainer .material-icons-outlined {
@@ -25,16 +21,16 @@ body {
   text-decoration: none;
   color: var(--secondary-color);
   background-color: var(--primary-color);
-  padding: .5rem;
+  padding: 1rem;
   border-radius: 1rem;
-  margin: 1rem .2rem;
+  margin: 2rem 1.2rem;
 }
 
 .logoutContainer .logout .secondary {
   text-decoration: none;
   color: var(--default);
   border: 1px solid;
-  padding: .5rem;
-  margin: 1rem .2rem;
+  padding: 1rem;
+  margin: 2rem 1.2rem;
   border-radius: 1rem;
 }

@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
+
 const Header = () => (
   <>
     <header class="head">
       <p>
-        <a class="home" href="/index.html">
+        <Link class="home" to="/">
           Home
-        </a>
+        </Link>
         /
         <a class="product" href="#">
           <strong>Product</strong>
@@ -14,4 +16,4 @@ const Header = () => (
   </>
 );
 
-export {Header}
+export { Header };

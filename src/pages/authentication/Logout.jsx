@@ -1,13 +1,12 @@
 import "styles/authentication/Logout.css"
 
 const Logout = () => (
-  <>
     <section className="logoutContainer">
       <div className="heading">
         <span className="material-icons-outlined"> logout </span>
-        <p>
+        <h1>
           <strong>LOG OUT</strong>
-        </p>
+        </h1>
         <small>Oh no! You're leaving...</small>
       </div>
 
@@ -23,7 +22,6 @@ const Logout = () => (
         </a>
       </form>
     </section>
-  </>
 );
 
 export { Logout };

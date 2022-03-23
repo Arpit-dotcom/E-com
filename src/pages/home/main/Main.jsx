@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { deals } from "staticData/data";
 
 const Main = () => (
@@ -8,20 +9,16 @@ const Main = () => (
           <strong>Home</strong>
         </a>
         /
-        <a class="product" href="/pages/product.html">
+        <Link class="product" to="/product">
           Product
-        </a>
+        </Link>
       </p>
     </header>
 
     <main class="container">
       {deals.map((sale) => (
         <>
-          <img
-            class="deals"
-            src={sale.deal}
-            alt="deals.img"
-          />
+          <img class="deals" src={sale.deal} alt="deals.img" />
           <section class="sub-container">
             {sale.data.map((item) => (
               <>

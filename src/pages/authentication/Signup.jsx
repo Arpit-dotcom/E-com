@@ -1,13 +1,13 @@
+import { Link } from "react-router-dom";
 import "styles/authentication/Signup.css";
 
 const loginData = ["Firstname", "Lastname", "Email", "Password"];
 const Signup = () => (
-  <>
     <section class="signupContainer">
       <div class="heading">
-        <p>
+        <h1>
           <strong>SIGN UP</strong>
-        </p>
+        </h1>
       </div>
 
       <form action="login">
@@ -19,17 +19,16 @@ const Signup = () => (
             </label>
           </>
         ))}
-        <input class="submit" type="submit" name="" />
+        <input class="submit" type="submit" value="Signup" />
       </form>
 
       <p>
         Already have an account?
-        <a class="signin-link" href="/pages/login.html">
+        <Link class="signin-link" to="/login">
           Sign In
-        </a>
+        </Link>
       </p>
     </section>
-  </>
 );
 
 export { Signup };

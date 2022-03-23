@@ -1,46 +1,34 @@
+import { Link } from "react-router-dom";
 import "styles/authentication/Login.css";
 
+const loginData = ["Email","Password"];
 const Login = () => (
-  <>
     <section class="loginContainer">
       <span class="material-icons-outlined"> login </span>
       <div class="heading">
-        <p>
+        <h1>
           <strong>LOGIN</strong>
-        </p>
+        </h1>
         <small>See your growth and consulting support</small>
       </div>
 
       <form action="login">
-        <label for="Email">
-          Email
-          <input
-            class="inp"
-            type="text"
-            placeholder="mail@gmail.com"
-            required
-          />
-        </label>
-        <label for="Password">
-          Password
-          <input
-            class="inp"
-            type="password"
-            placeholder="Min. 8 characters"
-            required
-          />
-        </label>
-        <input class="submit" type="submit" name="" />
+        {loginData.map((item) => (
+          <>
+            <label for="Email">
+              {item}
+              <input class="inp" type="text" placeholder={item} required />
+            </label>
+          </>
+        ))}
+        <input class="submit" type="submit" value="Login" />
       </form>
 
       <p>
         Don't have an account?
-        <a class="signup-link" href="/pages/signup.html">
-          Sign Up
-        </a>
+        <Link class="signup-link" to="/signup">Log In</Link>
       </p>
     </section>
-  </>
 );
 
 export { Login };
