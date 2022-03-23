@@ -1,10 +1,19 @@
 import "./App.css";
-import { Wishlist } from "./pages";
+import { Cart, Home, Login, Logout, Product, Signup, Wishlist } from "./pages";
+import { Routes, Route} from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <Wishlist />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/product" element={<Product />} />
+        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
     </div>
   );
 }

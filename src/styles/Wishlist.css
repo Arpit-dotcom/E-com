@@ -11,10 +11,6 @@
     padding: 0 0.5rem;
 }
 
-.wishlistContainer .favourite{
-    padding: 0 3rem;
-}
-
 .wishlistContainer .sub-container{
     align-self: flex-start;
     width: 100%;
@@ -25,14 +21,20 @@
     padding: 0;
     margin: 1rem;
     background-color: var(--white-section);
-    height: 16rem;
+    height: 18rem;
 }
 
 .wishlistContainer .horizontal .img{
     width: 100%;
-    height: 60%;
+    height: 50%;
     object-fit: cover;
     border-radius: 1rem 1rem 0 0;
+}
+
+.wishlistContainer .card-footer{
+    margin: .2rem 0;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .wishlistContainer .card-footer .btn{
@@ -43,6 +45,8 @@
 }
 
 .wishlistContainer .icon{
+    width: 100%;
+    text-align: center;
     border: 1px solid var(--primary-color);
     padding: 0.2rem;
     border-radius: 0.5rem;

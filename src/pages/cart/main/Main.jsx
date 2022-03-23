@@ -59,15 +59,16 @@ const Main = () => (
               </p>
 
               <section class="card-footer">
-                <div class="margin-0 padding-0 btn">
-                  <button class="margin-0 padding-0 btn primary">
-                    Buy Now
-                  </button>
-                </div>
-
                 <div class="icon">
                   <a class="favourite" href="#">
-                    <i class="fas fa-heart"></i>Add to wishlist
+                    <i class="fas fa-heart"></i> Add to wishlist
+                  </a>
+                </div>
+              </section>
+              <section class="card-footer">
+                <div class="icon">
+                  <a class="favourite" href="#">
+                    <i class="fas fa-shopping-cart"></i> Remove from cart
                   </a>
                 </div>
               </section>
