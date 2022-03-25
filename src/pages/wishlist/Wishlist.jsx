@@ -4,9 +4,7 @@ import "styles/Wishlist.css";
 
 const Wishlist = () => (
   <>
-    <Navbar />
     <Main />
-    <Footer />
   </>
 );
 

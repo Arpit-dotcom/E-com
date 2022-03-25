@@ -1,10 +1,12 @@
 const categories = [
-  "Earings",
-  "Bracelet",
-  "Ring",
-  "Necklace & Chain",
-  "Pendant",
-  "Hair Appliance",
+  "Headphones",
+  "Shoes",
+  "Lipstick",
+  "Earphone",
+  "Watch",
+  "Face Wash",
+  "Sunglasses",
+  "Bag"
 ];
 
 const ratings = [
@@ -16,16 +18,14 @@ const ratings = [
 
 const sortBy = ["Price - High to Low", "Price - Low to High"];
 
-const filterBy = ["Discount", "In Stock"];
-
 const Sidebar = () => (
   <>
-    <aside class="drawer">
-      <h1 class="heading">CATEGORIES</h1>
+    <aside className="drawer">
+      <h1 className="heading">CATEGORIES</h1>
       {categories.map((category) => (
         <>
-          <ul class="sub-drawer stacked-list">
-            <li class="list-item">
+          <ul className="sub-drawer stacked-list">
+            <li className="list-item">
               <label>
                 <input type="checkbox" />
                 {category}
@@ -35,11 +35,11 @@ const Sidebar = () => (
         </>
       ))}
 
-      <h1 class="heading">RATING</h1>
+      <h1 className="heading">RATING</h1>
       {ratings.map((rating) => (
         <>
-          <ul class="sub-drawer stacked-list">
-            <li class="list-item">
+          <ul className="sub-drawer stacked-list">
+            <li className="list-item">
               <label>
                 <input type="checkbox" />
                 {rating}
@@ -49,25 +49,11 @@ const Sidebar = () => (
         </>
       ))}
 
-      <h1 class="heading">SORTBY</h1>
+      <h1 className="heading">SORTBY</h1>
       {sortBy.map((item) => (
         <>
-          <ul class="sub-drawer stacked-list">
-            <li class="list-item">
-              <label>
-                <input type="checkbox" />
-                {item}
-              </label>
-            </li>
-          </ul>
-        </>
-      ))}
-
-      <h1 class="heading">FILTERBY</h1>
-      {filterBy.map((item) => (
-        <>
-          <ul class="sub-drawer stacked-list">
-            <li class="list-item">
+          <ul className="sub-drawer stacked-list">
+            <li className="list-item">
               <label>
                 <input type="checkbox" />
                 {item}

@@ -5,9 +5,7 @@ import "styles/Home.css";
 export const Home = () =>{ 
   return (
     <>
-      <Navbar />
       <Main />
-      <Footer />
     </>
   )}
   
