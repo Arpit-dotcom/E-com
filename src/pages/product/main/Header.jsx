@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 
 const Header = () => (
   <>
-    <header class="head">
+    <header className="head">
       <p>
-        <Link class="home" to="/">
+        <Link className="home" to="/">
           Home
         </Link>
         /
-        <a class="product" href="#">
+        <a className="product" href="#">
           <strong>Product</strong>
         </a>
       </p>

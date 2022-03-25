@@ -1,4 +1,5 @@
 .productContainer{
+    font-size: 1rem;
     display: grid;
     grid-template-columns: 1fr 5fr;
 }
@@ -24,6 +25,7 @@
     padding: 0;
     width: 15rem;
     height: 16rem;
+    position: relative;
 }
 .productContainer .card-text{
     padding: 0 1rem;
@@ -31,6 +33,18 @@
 
 .productContainer .img{
     object-fit: cover;
-    height: 70%;
+    height: 65%;
     border-radius: 1rem 1rem 0 0;
+}
+
+.productContainer .material-icons-outlined{
+    position: absolute;
+    right: .5rem;
+    top: 8.5rem;
+}
+
+.productContainer .rating{
+    position: absolute;
+    right: .5rem;
+    top: 9.5rem;
 }

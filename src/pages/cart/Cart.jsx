@@ -4,9 +4,7 @@ import "styles/Cart.css"
 
 const Cart = () => (
   <>
-    <Navbar />
     <Main />
-    <Footer />
   </>
 );
 
