@@ -1,4 +1,4 @@
-import { useProduct } from "contexts/ProductReducer";
+import { useProduct } from "contexts/ProductContext";
 
 const categories = [
   "Headphones",
@@ -27,14 +27,17 @@ const Sidebar = () => {
     dispatch({ type: category, payload: value });
   };
 
-  const isCatgeoryChecked = (categories, category) => {
+  const isCategoryChecked = (categories, category) => {
     return categories.includes(category);
   };
 
   return (
     <aside className="drawer">
-      <button onClick={() => clickHandler("CLEAR")}>Clear Filters</button>
-      <h1 className="heading">CATEGORIES</h1>
+      <div className="filter">
+        <h2>Filters</h2>
+        <button onClick={() => clickHandler("CLEAR")}>Clear Filters</button>
+      </div>
+      <h3 className="heading">CATEGORIES</h3>
       <ul className="sub-drawer stacked-list">
         {categories.map((category, index) => (
           <li className="list-item" key={index}>
@@ -44,7 +47,7 @@ const Sidebar = () => {
                 type="checkbox"
                 checked={
                   state.categories.length &&
-                  isCatgeoryChecked(state.categories, category)
+                  isCategoryChecked(state.categories, category)
                 }
               />
               {category}
@@ -52,7 +55,7 @@ const Sidebar = () => {
           </li>
         ))}
       </ul>
-      <h1 className="heading">RATING</h1>
+      <h3 className="heading">RATING</h3>
       <ul className="sub-drawer stacked-list">
         {ratings.map((item, index) => (
           <li className="list-item" key={index}>
@@ -68,7 +71,7 @@ const Sidebar = () => {
           </li>
         ))}
       </ul>
-      <h1 className="heading">SORTBY</h1>
+      <h3 className="heading">SORTBY</h3>
       <ul className="sub-drawer stacked-list">
         {sortBy.map((item, index) => (
           <li className="list-item" key={index}>

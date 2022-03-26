@@ -5,8 +5,17 @@
 }
 
 .productContainer .drawer{
-    width: 100%;
+    width: 15rem;
     padding: 1rem 0;
+}
+
+.productContainer .drawer .filter{
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter > button{
+    cursor: pointer;
 }
 
 .productContainer .drawer .heading{

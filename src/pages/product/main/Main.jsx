@@ -1,71 +1,9 @@
 import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { useProduct } from "contexts/ProductReducer";
-
-const getCategorisedProduct = (products, state) => {
-  const array = [...products];
-  const categories = state.categories;
-  if (categories.length === 0) {
-    return products;
-  }
-  return categories.reduce(
-    (acc, category) => [
-      ...acc,
-      ...array.filter((product) => product.title === category),
-    ],
-    []
-  );
-};
-
-const getRatingProducts = (products, state) => {
-  if (state.rating === " " || state.rating === "") {
-    return products;
-  }
-  const rating = parseInt(state.rating, 10);
-  const array = [...products];
-  return array.filter((product) => product.rating >= rating);
-};
-
-const getSortingProduts = (products, state) => {
-  if (state.sortBy === " " || state.sortBy === "") {
-    return products;
-  }
-  const sortBy = state.sortBy;
-  const array = [...products];
-
-  if (sortBy === "Low to High") {
-    return array.sort((a, b) => a.price - b.price);
-  }
-
-  if (sortBy === "High to Low") {
-    return array.sort((a, b) => b.price - a.price);
-  }
-};
+import { useProduct } from "contexts/ProductContext";
 
 const Main = () => {
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const { state } = useProduct();
-
-  useEffect(async () => {
-    try {
-      const result = await axios.get("/api/products");
-      const products = result.data.products;
-      setProducts(products);
-      setFilteredProducts(products);
-    } catch (error) {
-      alert(error);
-    }
-  }, []);
-
-  useEffect(() => {
-    const categoryProducts = getCategorisedProduct(products, state);
-    const ratingProducts = getRatingProducts(categoryProducts, state);
-    const sortedProducts = getSortingProduts(ratingProducts, state);
-    setFilteredProducts(sortedProducts);
-  }, [state]);
+  const { filteredProducts } = useProduct();
 
   return (
     <>
