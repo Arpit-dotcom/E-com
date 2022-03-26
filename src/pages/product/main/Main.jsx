@@ -45,7 +45,6 @@ const getSortingProduts = (products, state) => {
 };
 
 const Main = () => {
-  // maintaing original data
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const { state } = useProduct();
@@ -62,8 +61,6 @@ const Main = () => {
   }, []);
 
   useEffect(() => {
-    // before filter hamesha, haam kya la raha haan original data
-    //endgame main original datake  copy the jo data ke naam sa he the
     const categoryProducts = getCategorisedProduct(products, state);
     const ratingProducts = getRatingProducts(categoryProducts, state);
     const sortedProducts = getSortingProduts(ratingProducts, state);

@@ -34,7 +34,7 @@ const Sidebar = () => {
   return (
     <aside className="drawer">
       <button onClick={() => clickHandler("CLEAR")}>Clear Filters</button>
-      <h2 className="heading">CATEGORIES</h2>
+      <h1 className="heading">CATEGORIES</h1>
       <ul className="sub-drawer stacked-list">
         {categories.map((category, index) => (
           <li className="list-item" key={index}>
@@ -52,7 +52,7 @@ const Sidebar = () => {
           </li>
         ))}
       </ul>
-      <h2 className="heading">RATING</h2>
+      <h1 className="heading">RATING</h1>
       <ul className="sub-drawer stacked-list">
         {ratings.map((item, index) => (
           <li className="list-item" key={index}>
@@ -68,7 +68,7 @@ const Sidebar = () => {
           </li>
         ))}
       </ul>
-      <h2 className="heading">SORTBY</h2>
+      <h1 className="heading">SORTBY</h1>
       <ul className="sub-drawer stacked-list">
         {sortBy.map((item, index) => (
           <li className="list-item" key={index}>
