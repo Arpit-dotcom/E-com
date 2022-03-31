@@ -4,7 +4,7 @@ const categories = [
   "Headphones",
   "Shoes",
   "Lipstick",
-  "Earphone",
+  "Earphones",
   "Watch",
   "Face Wash",
   "Sunglasses",
@@ -61,8 +61,8 @@ const Sidebar = () => {
           <li className="list-item" key={index}>
             <label>
               <input
-                onChange={() => clickHandler("Rating", item[0])}
-                checked={state.rating && state["rating"] === item[0]}
+                onChange={() => clickHandler("Rating", item)}
+                checked={state.rating && state["rating"] === item}
                 type="radio"
                 name="rating"
               />
