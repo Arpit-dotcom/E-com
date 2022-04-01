@@ -1,19 +1,9 @@
 import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useProduct } from "contexts/ProductContext";
 
 const Main = () => {
-  const [productData, setProductData] = useState([]);
-
-  useEffect(async () => {
-    try {
-      const result = await axios.get("/api/products");
-      setProductData(result.data.products);
-    } catch (error) {
-      alert(error);
-    }
-  }, [productData]);
+  const { filteredProducts } = useProduct();
 
   return (
     <>
@@ -23,17 +13,15 @@ const Main = () => {
         <Sidebar />
 
         <main className="main-content">
-          {productData.map(
-            ({ brand, id, image, price, title, rating, _id }) => (
-              <>
-                <section className="card badge-card" key={id}>
+          {filteredProducts &&
+            filteredProducts.map(
+              ({ brand, image, price, title, rating, _id }) => (
+                <section className="card badge-card" key={_id}>
                   <span className="material-icons-outlined">
                     favorite_border
                   </span>
                   <img className="img" src={image} alt="card-image" />
-                  <div className="rating">
-                    {rating}star
-                  </div>
+                  <div className="rating">{rating}star</div>
                   <div className="card-text">
                     <h3>{brand}</h3>
                     <p>{title}</p>
@@ -42,9 +30,9 @@ const Main = () => {
                     </small>
                   </div>
                 </section>
-              </>
-            )
-          )}
+              )
+            )}
+          {!filteredProducts.length && <h2>Loading...</h2>}
         </main>
       </section>
     </>

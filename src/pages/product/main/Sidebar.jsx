@@ -1,12 +1,14 @@
+import { useProduct } from "contexts/ProductContext";
+
 const categories = [
   "Headphones",
   "Shoes",
   "Lipstick",
-  "Earphone",
+  "Earphones",
   "Watch",
   "Face Wash",
   "Sunglasses",
-  "Bag"
+  "Bag",
 ];
 
 const ratings = [
@@ -18,52 +20,75 @@ const ratings = [
 
 const sortBy = ["Price - High to Low", "Price - Low to High"];
 
-const Sidebar = () => (
-  <>
+const Sidebar = () => {
+  const { dispatch, state } = useProduct();
+
+  const clickHandler = (category, value) => {
+    dispatch({ type: category, payload: value });
+  };
+
+  const isCategoryChecked = (categories, category) => {
+    return categories.includes(category);
+  };
+
+  return (
     <aside className="drawer">
-      <h1 className="heading">CATEGORIES</h1>
-      {categories.map((category) => (
-        <>
-          <ul className="sub-drawer stacked-list">
-            <li className="list-item">
-              <label>
-                <input type="checkbox" />
-                {category}
-              </label>
-            </li>
-          </ul>
-        </>
-      ))}
-
-      <h1 className="heading">RATING</h1>
-      {ratings.map((rating) => (
-        <>
-          <ul className="sub-drawer stacked-list">
-            <li className="list-item">
-              <label>
-                <input type="checkbox" />
-                {rating}
-              </label>
-            </li>
-          </ul>
-        </>
-      ))}
-
-      <h1 className="heading">SORTBY</h1>
-      {sortBy.map((item) => (
-        <>
-          <ul className="sub-drawer stacked-list">
-            <li className="list-item">
-              <label>
-                <input type="checkbox" />
-                {item}
-              </label>
-            </li>
-          </ul>
-        </>
-      ))}
+      <div className="filter">
+        <h2>Filters</h2>
+        <button onClick={() => clickHandler("CLEAR")}>Clear Filters</button>
+      </div>
+      <h3 className="heading">CATEGORIES</h3>
+      <ul className="sub-drawer stacked-list">
+        {categories.map((category, index) => (
+          <li className="list-item" key={index}>
+            <label>
+              <input
+                onClick={() => clickHandler("categories", category)}
+                type="checkbox"
+                checked={
+                  state.categories.length &&
+                  isCategoryChecked(state.categories, category)
+                }
+              />
+              {category}
+            </label>
+          </li>
+        ))}
+      </ul>
+      <h3 className="heading">RATING</h3>
+      <ul className="sub-drawer stacked-list">
+        {ratings.map((item, index) => (
+          <li className="list-item" key={index}>
+            <label>
+              <input
+                onChange={() => clickHandler("Rating", item)}
+                checked={state.rating && state["rating"] === item}
+                type="radio"
+                name="rating"
+              />
+              {item}
+            </label>
+          </li>
+        ))}
+      </ul>
+      <h3 className="heading">SORTBY</h3>
+      <ul className="sub-drawer stacked-list">
+        {sortBy.map((item, index) => (
+          <li className="list-item" key={index}>
+            <label>
+              <input
+                onChange={() => clickHandler("Sort", item.slice(8))}
+                checked={state.sortBy && state["sortBy"] === item.slice(8)}
+                type="radio"
+                name="sort"
+              />
+              {item}
+            </label>
+          </li>
+        ))}
+      </ul>
     </aside>
-  </>
-);
+  );
+};
 
 export { Sidebar };

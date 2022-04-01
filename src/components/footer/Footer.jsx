@@ -10,14 +10,12 @@ const Footer = () => (
           <u>Online Shopping</u>
         </h2>
         <ul className="stacked-list">
-          {items.map((item) => (
-            <>
-              <li className="list-item">
+          {items.map((item, index) => (
+              <li className="list-item" key={index}>
                 <a className="link" href="" target="_blank">
                   <small>{item}</small>
                 </a>
               </li>
-            </>
           ))}
         </ul>
       </div>
