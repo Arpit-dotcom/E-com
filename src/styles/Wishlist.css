@@ -1,5 +1,5 @@
 .wishlistContainer{
-    height: auto;
+    min-height: 100vh;
 }
 
 .wishlistContainer .sub-container{
@@ -55,4 +55,11 @@
 .wishlistContainer .icon .favourite{
     color: var(--primary-color);
     text-decoration: none;
+}
+
+.wishlistContainer .wishlist-empty{
+    font-size: 5rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 20rem;
 }

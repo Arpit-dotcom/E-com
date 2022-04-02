@@ -1,59 +1,104 @@
-.productContainer{
-    font-size: 1rem;
-    display: grid;
-    grid-template-columns: 1fr 5fr;
+.productContainer {
+  font-size: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
 }
 
-.productContainer .drawer{
-    width: 15rem;
-    padding: 1rem 0;
+.productContainer .drawer {
+  width: 15rem;
+  padding: 1rem 0;
 }
 
-.productContainer .drawer .filter{
-    display: flex;
-    justify-content: space-between;
+.productContainer .drawer .filter {
+  display: flex;
+  justify-content: space-between;
 }
 
-.filter > button{
-    cursor: pointer;
+.filter > button {
+  cursor: pointer;
 }
 
-.productContainer .drawer .heading{
-    margin: .5rem;
-    text-align: left;
+.productContainer .drawer .heading {
+  margin: 0.5rem;
+  text-align: left;
 }
 
-.productContainer .main-content{
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+.productContainer .main-content {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
-.productContainer .card{
-    background-color: var(--white-section);
-    padding: 0;
-    width: 15rem;
-    height: 16rem;
-    position: relative;
+.productContainer .card {
+  background-color: var(--white-section);
+  padding: 0;
+  width: 15rem;
+  height: 18rem;
+  position: relative;
 }
-.productContainer .card-text{
-    padding: 0 1rem;
-}
-
-.productContainer .img{
-    object-fit: cover;
-    height: 65%;
-    border-radius: 1rem 1rem 0 0;
+.productContainer .card-text {
+  padding: 0 1rem;
 }
 
-.productContainer .material-icons-outlined{
-    position: absolute;
-    right: .5rem;
-    top: .5rem;
+.productContainer .img {
+  object-fit: cover;
+  height: 60%;
+  border-radius: 1rem 1rem 0 0;
 }
 
-.productContainer .rating{
-    position: absolute;
-    right: .5rem;
-    top: 9.5rem;
+.productContainer .wishlist-button {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  background-color: var(--white-section);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.productContainer .wishlist-button .material-icons-outlined {
+  padding: 5px;
+  color: var(--badge-dnd);
+}
+
+.productContainer .rating {
+  position: absolute;
+  right: 0.5rem;
+  top: 9.5rem;
+}
+
+.productContainer .card-footer {
+  background-color: 1px solid black;
+}
+
+.productContainer .card-footer {
+  margin: 0.2rem 0;
+}
+
+.productContainer .card-footer .btn {
+  width: 90%;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+}
+
+.productContainer .icon {
+  width: 100%;
+  text-align: center;
+  border: 1px solid var(--primary-color);
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+}
+
+.productContainer .icon .favourite {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.productContainer .product-empty {
+  font-size: 5rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 8rem;
 }

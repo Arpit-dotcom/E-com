@@ -43,7 +43,7 @@ const Sidebar = () => {
           <li className="list-item" key={index}>
             <label>
               <input
-                onClick={() => clickHandler("categories", category)}
+                onChange={() => clickHandler("categories", category)}
                 type="checkbox"
                 checked={
                   state.categories.length &&
