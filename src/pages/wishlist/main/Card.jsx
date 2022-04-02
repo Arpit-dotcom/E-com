@@ -30,7 +30,7 @@ const Card = () => {
             className="card-footer"
             onClick={() =>
               dispatch({
-                type: "Remove_from_wishlist",
+                type: "REMOVE_FROM_WISHLIST",
                 payload: product,
               })
             }

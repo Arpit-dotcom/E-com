@@ -14,12 +14,12 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
   }) => {
     if (!inWishlist) {
       dispatch({
-        type: "Add_to_wishlist",
+        type: "ADD_TO_WISHLIST",
         payload: { brand, image, price, title, rating, _id },
       });
     } else {
       dispatch({
-        type: "Remove_from_wishlist",
+        type: "REMOVE_FROM_WISHLIST",
         payload: { brand, image, price, title, rating, _id },
       });
     }

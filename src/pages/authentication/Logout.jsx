@@ -12,13 +12,11 @@ const Logout = () => (
 
     <form className="logout" action="logout">
       <a className="primary" href="#">
-        {" "}
-        Just kidding{" "}
+        Just kidding
       </a>
 
       <a className="secondary" href="#">
-        {" "}
-        Log Me Out{" "}
+        Log Me Out
       </a>
     </form>
   </section>
