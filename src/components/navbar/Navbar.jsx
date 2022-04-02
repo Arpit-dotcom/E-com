@@ -2,8 +2,11 @@ import React from "react";
 import "styles/Navbar.css";
 import logoImage from "assets/logo.png";
 import { Link } from "react-router-dom";
+import { useWishlist } from "contexts/WishlistContext";
 
-const Navbar = () => (
+const Navbar = () => {
+  const {state} = useWishlist();
+  return(
   <>
     <nav className="simple-navigation">
       <div className="nav-list">
@@ -28,20 +31,20 @@ const Navbar = () => (
           <Link className="wishlist " to="/wishlist">
             <span className="material-icons"> favorite </span>
             <span className="header-text">Wishlist</span>
-            {/* <span className="material-icons badge"> circle </span>
-            <span className="num-items">6</span> */}
+            <span className="material-icons badge"> circle </span>
+            <span className="num-items">{state.wishlist.length}</span>
           </Link>
 
           <Link className="cart" to="/cart">
-              <span className="material-icons"> shopping_cart </span>
-              <span className="header-text">Cart</span>
-              {/* <span className="material-icons badge"> circle </span>
-            <span className="num-items">6</span> */}
+            <span className="material-icons"> shopping_cart </span>
+            <span className="header-text">Cart</span>
+            <span className="material-icons badge"> circle </span>
+            <span className="num-items">0</span>
           </Link>
         </div>
       </div>
     </nav>
   </>
-);
+)}
 
 export { Navbar };

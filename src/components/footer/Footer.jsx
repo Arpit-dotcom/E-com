@@ -11,11 +11,11 @@ const Footer = () => (
         </h2>
         <ul className="stacked-list">
           {items.map((item, index) => (
-              <li className="list-item" key={index}>
-                <a className="link" href="" target="_blank">
-                  <small>{item}</small>
-                </a>
-              </li>
+            <li className="list-item" key={index}>
+              <a className="link" href="" target="_blank">
+                <small>{item}</small>
+              </a>
+            </li>
           ))}
         </ul>
       </div>
@@ -53,4 +53,4 @@ const Footer = () => (
   </>
 );
 
-export {Footer};
+export { Footer };

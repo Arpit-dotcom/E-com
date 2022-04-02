@@ -3,28 +3,28 @@ import { deals } from "staticData/data";
 
 const Main = () => (
   <>
-    <header class="head">
+    <header className="head">
       <p>
-        <a class="home" href="#">
+        <a className="home" href="#">
           <strong>Home</strong>
         </a>
         /
-        <Link class="product" to="/product">
+        <Link className="product" to="/product">
           Product
         </Link>
       </p>
     </header>
 
-    <main class="container">
+    <main className="container">
       {deals.map((sale) => (
         <>
-          <img class="deals" src={sale.deal} alt="deals.img" />
-          <section class="sub-container">
+          <img className="deals" src={sale.deal} alt="deals.img" />
+          <section className="sub-container">
             {sale.data.map((item) => (
               <>
                 <a href="#">
-                  <div class="retina">
-                    <img class="img-size" src={item} alt="card-image" />
+                  <div className="retina">
+                    <img className="img-size" src={item} alt="card-image" />
                   </div>
                 </a>
               </>
@@ -36,4 +36,4 @@ const Main = () => (
   </>
 );
 
-export {Main};
+export { Main };
