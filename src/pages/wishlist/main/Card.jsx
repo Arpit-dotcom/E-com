@@ -4,7 +4,6 @@ const Card = () => {
   const { state, dispatch } = useWishlist();
   return (
     <main className="sub-container">
-      {console.log({ state })}
       {state.wishlist.map((product) => (
         <section className="padding-0 card horizontal" key={product._id}>
           <img className="img" src={product.image} alt="wishlist-products" />
