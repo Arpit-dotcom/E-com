@@ -16,8 +16,8 @@ const Main = () => {
         <main className="main-content">
           {filteredProducts &&
             filteredProducts.map(
-              (item) => (
-                <Card {...item} />
+              (item,index) => (
+                <Card {...item} key={index}/>
               )
             )}
           {!filteredProducts.length && <h1 className="product-empty">Loading...</h1>}

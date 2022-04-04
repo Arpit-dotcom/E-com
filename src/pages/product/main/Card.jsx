@@ -1,7 +1,9 @@
-const { useWishlist } = require("contexts/WishlistContext");
+import { useCart } from "contexts/CartContext";
+import { useWishlist } from "contexts/WishlistContext";
 
 export const Card = ({ brand, image, price, title, rating, _id }) => {
   const { state, dispatch } = useWishlist();
+  const { cartDispatch } = useCart();
   const inWishlist = state.wishlist.find((item) => item._id === _id);
   const wishlistButton = !inWishlist ? "favorite_border" : "favorite";
   const wishlistButtonHandler = ({
@@ -25,7 +27,7 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
     }
   };
   return (
-    <section className="card badge-card" key={_id}>
+    <section className="card badge-card">
       <button
         className="wishlist-button"
         onClick={() =>
@@ -50,7 +52,15 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
           <strong>₹{price}</strong>
         </small>
       </div>
-      <section className="card-footer">
+      <section
+        className="card-footer"
+        onClick={() =>
+          cartDispatch({
+            type: "ADD_TO_CART",
+            payload: { brand, image, price, title, rating, _id },
+          })
+        }
+      >
         <div className="icon">
           <a className="favourite" href="#">
             <i className="fas fa-shopping-cart"></i> Add to Cart

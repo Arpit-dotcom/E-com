@@ -1,10 +1,11 @@
 .cartContainer {
     display: grid;
     grid-template-columns: 1fr 4fr;
+    min-height: 100vh;
 }
 
 .cartContainer .sidebar{
-    width: 100%;
+    width: 20rem;
 }
 
 .cartContainer .only-text{
@@ -31,9 +32,14 @@
 
 .cartContainer .horizontal .img{
     width: 100%;
-    height: 50%;
+    height: 52%;
     object-fit: cover;
     border-radius: 1rem 1rem 0 0;
+}
+
+.cartContainer .header .text{
+    padding: 0;
+    margin: 0;
 }
 
 .cartContainer .card-footer{
@@ -59,4 +65,24 @@
 .cartContainer .icon .favourite{
     color: var(--primary-color);
     text-decoration: none;
+}
+
+.cartContainer .icon-quantity{
+    width: 60%;
+    text-align: center;
+    border: 1px solid var(--primary-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+.cartContainer .icon-button{
+    padding:0 0.5rem;
+}
+
+.cart-empty{
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 25rem;
+    min-height: 100vh;
 }

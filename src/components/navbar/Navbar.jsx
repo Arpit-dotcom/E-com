@@ -3,9 +3,11 @@ import "styles/Navbar.css";
 import logoImage from "assets/logo.png";
 import { Link } from "react-router-dom";
 import { useWishlist } from "contexts/WishlistContext";
+import { useCart } from "contexts/CartContext";
 
 const Navbar = () => {
   const {state} = useWishlist();
+  const {cartState} = useCart();
   return(
   <>
     <nav className="simple-navigation">
@@ -39,7 +41,7 @@ const Navbar = () => {
             <span className="material-icons"> shopping_cart </span>
             <span className="header-text">Cart</span>
             <span className="material-icons badge"> circle </span>
-            <span className="num-items">0</span>
+            <span className="num-items">{cartState.cart.length}</span>
           </Link>
         </div>
       </div>

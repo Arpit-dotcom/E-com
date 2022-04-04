@@ -1,7 +1,9 @@
+import { useCart } from "contexts/CartContext";
 import { useWishlist } from "contexts/WishlistContext";
 
 const Card = () => {
   const { state, dispatch } = useWishlist();
+  const { cartDispatch } = useCart();
   return (
     <main className="sub-container">
       {state.wishlist.map((product) => (
@@ -9,16 +11,22 @@ const Card = () => {
           <img className="img" src={product.image} alt="wishlist-products" />
 
           <section className="header">
-            <h2 className="brand">Brand Name</h2>
-            <h3 className="price">Brand Price</h3>
+            <h1 className="text">
+              <strong>{product.brand}</strong>
+            </h1>
+            <h2 className="brand">{product.title}</h2>
+            <h3 className="price">{product.price}</h3>
           </section>
 
-          <p className="text">
-            <strong>Product Name</strong>
-            and product information
-          </p>
-
-          <section className="card-footer">
+          <section
+            className="card-footer"
+            onClick={() =>
+              cartDispatch({
+                type: "ADD_TO_CART",
+                payload: product,
+              })
+            }
+          >
             <div className="icon">
               <a className="favourite" href="#">
                 <i className="fas fa-shopping-cart"></i>Add to Cart

@@ -31,6 +31,11 @@
     border-radius: 1rem 1rem 0 0;
 }
 
+.wishlistContainer .header .text{
+    padding: 0;
+    margin: 0;
+}
+
 .wishlistContainer .card-footer{
     margin: .2rem 0;
     padding-left: 0;
@@ -58,8 +63,8 @@
 }
 
 .wishlistContainer .wishlist-empty{
-    font-size: 5rem;
+    font-size: 3rem;
     display: flex;
     justify-content: center;
-    margin-top: 20rem;
+    margin-top: 15rem;
 }
