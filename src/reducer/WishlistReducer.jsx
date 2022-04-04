@@ -1,8 +1,8 @@
-import {addToWishlist,removeFromWishlist} from "utils/wishlist";
+import { addToWishlist, removeFromWishlist } from "utils/wishlist";
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case  "ADD_TO_WISHLIST":
+    case "ADD_TO_WISHLIST":
       return {
         ...state,
         wishlist: addToWishlist(state.wishlist, action.payload),

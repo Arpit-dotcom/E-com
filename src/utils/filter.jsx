@@ -38,8 +38,4 @@ const getSortingProduts = (products, state) => {
   }
 };
 
-export {
-  getCategorisedProduct,
-  getRatingProducts,
-  getSortingProduts,
-};
+export { getCategorisedProduct, getRatingProducts, getSortingProduts };
