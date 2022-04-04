@@ -1,20 +1,20 @@
-import {addToWishlist,removeFromWishlist} from "utils/wishlist";
+import { addToWishlist, removeFromWishlist } from "utils";
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case  "ADD_TO_WISHLIST":
+const wishlistReducer = (wishlistState, wishlistAction) => {
+  switch (wishlistAction.type) {
+    case "ADD_TO_WISHLIST":
       return {
-        ...state,
-        wishlist: addToWishlist(state.wishlist, action.payload),
+        ...wishlistState,
+        wishlist: addToWishlist(wishlistState.wishlist, wishlistAction.payload),
       };
     case "REMOVE_FROM_WISHLIST":
       return {
-        ...state,
-        wishlist: removeFromWishlist(state.wishlist, action.payload),
+        ...wishlistState,
+        wishlist: removeFromWishlist(wishlistState.wishlist, wishlistAction.payload),
       };
     default:
-      return state;
+      return wishlistState;
   }
 };
 
-export { reducer };
+export { wishlistReducer };

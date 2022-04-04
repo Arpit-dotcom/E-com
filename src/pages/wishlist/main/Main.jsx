@@ -1,12 +1,12 @@
-import { useWishlist } from "contexts/WishlistContext";
+import { useWishlist } from "contexts";
 import { Card } from "./Card";
 
 const Main = () => {
-  const {state} = useWishlist();
+  const {wishlistState} = useWishlist();
   return(
     <section className="margin-0 wishlistContainer">
       <Card />
-      {!state.wishlist.length && <h1 className="wishlist-empty">Wishlist is empty!!!!</h1>}
+      {!wishlistState.wishlist.length && <h1 className="wishlist-empty">Wishlist is empty!!!!</h1>}
     </section>
 )}
 

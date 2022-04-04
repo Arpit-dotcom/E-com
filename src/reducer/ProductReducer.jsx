@@ -1,3 +1,4 @@
+
 const checkCategories = (categories, category) => {
   if (categories.includes(category)) {
     return categories.filter((cat) => cat !== category);
@@ -33,5 +34,5 @@ const reducer = (state, action) => {
       return state;
   }
 };
- 
-export {reducer};
+
+export { reducer };
