@@ -1,3 +1,4 @@
+
 const checkCategories = (categories, category) => {
   if (categories.includes(category)) {
     return categories.filter((cat) => cat !== category);

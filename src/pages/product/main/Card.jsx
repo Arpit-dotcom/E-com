@@ -1,10 +1,9 @@
-import { useCart } from "contexts/CartContext";
-import { useWishlist } from "contexts/WishlistContext";
+import { useCart, useWishlist } from "contexts";
 
 export const Card = ({ brand, image, price, title, rating, _id }) => {
-  const { state, dispatch } = useWishlist();
+  const { wishlistState, wishlistDispatch } = useWishlist();
   const { cartDispatch } = useCart();
-  const inWishlist = state.wishlist.find((item) => item._id === _id);
+  const inWishlist = wishlistState.wishlist.find((item) => item._id === _id);
   const wishlistButton = !inWishlist ? "favorite_border" : "favorite";
   const wishlistButtonHandler = ({
     brand,
@@ -15,12 +14,12 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
     _id,
   }) => {
     if (!inWishlist) {
-      dispatch({
+      wishlistDispatch({
         type: "ADD_TO_WISHLIST",
         payload: { brand, image, price, title, rating, _id },
       });
     } else {
-      dispatch({
+      wishlistDispatch({
         type: "REMOVE_FROM_WISHLIST",
         payload: { brand, image, price, title, rating, _id },
       });

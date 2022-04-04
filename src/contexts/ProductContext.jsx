@@ -1,13 +1,17 @@
-import { useContext, useReducer, createContext } from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import {
+  useContext,
+  useReducer,
+  createContext,
+  useEffect,
+  useState,
+} from "react";
 import axios from "axios";
-import { reducer } from "reducer/ProductReducer";
+import { reducer } from "reducer";
 import {
   getCategorisedProduct,
   getRatingProducts,
   getSortingProduts,
-} from "utils/filter";
+} from "utils";
 
 const defaultState = {
   rating: "",

@@ -3,6 +3,9 @@ import { Card } from "./Card";
 
 const Main = () => {
   const { cartState } = useCart();
+  const { cart, totalItemsPrice } = cartState;
+  const discount = totalItemsPrice * 0.4;
+  const totalPrice = totalItemsPrice + 40 - totalItemsPrice * 0.4;
 
   return (
     <section className="margin-0 cartContainer">
@@ -14,18 +17,18 @@ const Main = () => {
             </h1>
             <div className="margin-bottom-0_5 cart-text">
               <h2>Quantity</h2>
-              <h3>{cartState.cart.length}</h3>
+              <h3>{cart.length}</h3>
             </div>
             <div className="cart-text">
               <h2>Price</h2>
-              <h3>₹{cartState.totalPrice}</h3>
+              <h3>₹{totalItemsPrice}</h3>
             </div>
             <div
               className="cart-text"
               style={{ textDecoration: "line-through" }}
             >
               <h2>Discount(40% off)</h2>
-              <h3>₹{cartState.totalPrice * 0.4}</h3>
+              <h3>₹{discount}</h3>
             </div>
             <div className="margin-bottom-0_5 cart-text">
               <h2>Delivery Charges</h2>
@@ -33,14 +36,14 @@ const Main = () => {
             </div>
             <div className="margin-bottom-0_5 cart-text">
               <h2>Total Price</h2>
-              <h3>₹{cartState.totalPrice + 40 - cartState.totalPrice * 0.4}</h3>
+              <h3>₹{totalPrice}</h3>
             </div>
-            <p>You will save ₹{cartState.totalPrice * 0.4} on the product</p>
+            <p>You will save ₹{discount} on the product</p>
           </section>
 
           <section className="card-footer">
             <div className="margin-0 padding-0 btn">
-              <button className="margin-0 padding-0 btn primary">
+              <button className="margin-0 padding-0 btn primary" style={{cursor:"pointer"}}>
                 Place Order
               </button>
             </div>

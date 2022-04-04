@@ -77,12 +77,13 @@
 
 .cartContainer .icon-button{
     padding:0 0.5rem;
+    cursor: pointer;
 }
 
 .cart-empty{
     font-size: 3rem;
     display: flex;
     justify-content: center;
-    margin-top: 25rem;
+    margin-top: 15rem;
     min-height: 100vh;
 }

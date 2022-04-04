@@ -3,7 +3,7 @@ import {
   removeFromCart,
   increaseQuantity,
   decreaseQuantity,
-} from "utils/cart";
+} from "utils";
 
 const cartReducer = (cartState, cartAction) => {
   switch (cartAction.type) {
@@ -11,27 +11,27 @@ const cartReducer = (cartState, cartAction) => {
       return {
         ...cartState,
         cart: addToCart(cartState.cart, cartAction.payload),
-        totalPrice: cartState.totalPrice + cartAction.payload.price,
+        totalItemsPrice: cartState.totalItemsPrice + cartAction.payload.price,
       };
     case "REMOVE_FROM_CART":
       return {
         ...cartState,
         cart: removeFromCart(cartState.cart, cartAction.payload),
-        totalPrice:
-          cartState.totalPrice -
+        totalItemsPrice:
+          cartState.totalItemsPrice -
           cartAction.payload.price * cartAction.payload.quantity,
       };
     case "INCREASE_QUANTITY":
       return {
         ...cartState,
         cart: increaseQuantity(cartState.cart, cartAction.payload),
-        totalPrice: cartState.totalPrice + cartAction.payload.price,
+        totalItemsPrice: cartState.totalItemsPrice + cartAction.payload.price,
       };
     case "DECREASE_QUANTITY":
       return {
         ...cartState,
         cart: decreaseQuantity(cartState.cart, cartAction.payload),
-        totalPrice: cartState.totalPrice - cartAction.payload.price,
+        totalItemsPrice: cartState.totalItemsPrice - cartAction.payload.price,
       };
     default:
       return cartState;

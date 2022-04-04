@@ -43,6 +43,7 @@ const Sidebar = () => {
           <li className="list-item" key={index}>
             <label>
               <input
+                style={{ cursor: "pointer" }}
                 onChange={() => clickHandler("categories", category)}
                 type="checkbox"
                 checked={
@@ -61,6 +62,7 @@ const Sidebar = () => {
           <li className="list-item" key={index}>
             <label>
               <input
+                style={{ cursor: "pointer" }}
                 onChange={() => clickHandler("Rating", item)}
                 checked={state.rating && state["rating"] === item}
                 type="radio"
@@ -77,6 +79,7 @@ const Sidebar = () => {
           <li className="list-item" key={index}>
             <label>
               <input
+                style={{ cursor: "pointer" }}
                 onChange={() => clickHandler("Sort", item.slice(8))}
                 checked={state.sortBy && state["sortBy"] === item.slice(8)}
                 type="radio"

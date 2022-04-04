@@ -1,12 +1,11 @@
-import { useCart } from "contexts/CartContext";
-import { useWishlist } from "contexts/WishlistContext";
+import { useCart, useWishlist } from "contexts";
 
 const Card = () => {
-  const { state, dispatch } = useWishlist();
+  const { wishlistState, wishlistDispatch } = useWishlist();
   const { cartDispatch } = useCart();
   return (
     <main className="sub-container">
-      {state.wishlist.map((product) => (
+      {wishlistState.wishlist.map((product) => (
         <section className="padding-0 card horizontal" key={product._id}>
           <img className="img" src={product.image} alt="wishlist-products" />
 
@@ -36,7 +35,7 @@ const Card = () => {
           <section
             className="card-footer"
             onClick={() =>
-              dispatch({
+              wishlistDispatch({
                 type: "REMOVE_FROM_WISHLIST",
                 payload: product,
               })
