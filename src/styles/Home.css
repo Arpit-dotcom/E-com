@@ -6,10 +6,17 @@
 
 .deals{
     width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.carousal{
+    width: 95vw;
 }
 
 .img-size{
     margin: 0;
     object-fit: cover;
     height: auto;
+    width: 25rem;
 }

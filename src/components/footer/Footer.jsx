@@ -1,7 +1,7 @@
 import React from "react";
 import "styles/Footer.css";
 
-const items = ["Men", "Women", "Kids", "Home & Living", "Beauty"];
+const items = ["Headphones","Watch","Sunglasses","Bag"];
 const Footer = () => (
   <>
     <footer className="main-footer">

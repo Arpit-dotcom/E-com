@@ -18,15 +18,17 @@ const Main = () => (
     <main className="container">
       {deals.map((sale) => (
         <>
-          <img className="deals" src={sale.deal} alt="deals.img" />
+          <Link className="deals" to="/product">
+            <img className="carousal" src={sale.deal} alt="deals.img" />
+          </Link>
           <section className="sub-container">
             {sale.data.map((item) => (
               <>
-                <a href="#">
+                <Link to="/product">
                   <div className="retina">
                     <img className="img-size" src={item} alt="card-image" />
                   </div>
-                </a>
+                </Link>
               </>
             ))}
           </section>
