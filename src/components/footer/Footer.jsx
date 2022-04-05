@@ -46,7 +46,7 @@ const Footer = () => (
         />
         <p className="text">
           <strong>100% ORIGINAL </strong>guarantee for all products at
-          shopzilla.com
+          Shop-zila.com
         </p>
       </div>
     </footer>

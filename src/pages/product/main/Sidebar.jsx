@@ -35,7 +35,9 @@ const Sidebar = () => {
     <aside className="drawer">
       <div className="filter">
         <h2>Filters</h2>
-        <button onClick={() => clickHandler("CLEAR")}>Clear Filters</button>
+        <button className="clear-filter" onClick={() => clickHandler("CLEAR")}>
+          <u>Clear Filters</u>
+        </button>
       </div>
       <h3 className="heading">CATEGORIES</h3>
       <ul className="sub-drawer stacked-list">

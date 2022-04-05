@@ -14,8 +14,11 @@
   justify-content: space-between;
 }
 
-.filter > button {
+.filter .clear-filter {
   cursor: pointer;
+  background-color: var(--white-section);
+  border: none;
+  font-size: 1rem;
 }
 
 .productContainer .drawer .heading {

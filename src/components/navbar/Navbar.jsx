@@ -13,7 +13,7 @@ const Navbar = () => {
       <nav className="simple-navigation">
         <div className="nav-list">
           <img className="logo" src={logoImage} alt="logo" />
-          <h1 className="text">Shopzilla</h1>
+          <h1 className="text">Shopzila</h1>
         </div>
 
         <input

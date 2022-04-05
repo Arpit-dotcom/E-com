@@ -3,6 +3,7 @@ import { Cart, Home, Login, Logout, Product, Signup, Wishlist } from "./pages";
 import { Routes, Route } from "react-router-dom";
 import { Footer, Navbar } from "components";
 import Mockman from "mockman-js";
+import { PageNotFound } from "pages/404page";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/mock" element={<Mockman />} />
+        <Route path="*" element={<PageNotFound />} />
         {/* <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/signup" element={<Signup />} /> */}
