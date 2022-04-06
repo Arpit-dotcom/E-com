@@ -1,6 +1,11 @@
 import "styles/authentication/Logout.css";
+import { useEffect } from "react";
 
-const Logout = () => (
+const Logout = () =>{ 
+  useEffect(() => {
+    document.title = "Logout | Shopzila";
+  }, []);
+  return(
   <section className="logoutContainer">
     <div className="heading">
       <span className="material-icons-outlined"> logout </span>
@@ -20,6 +25,6 @@ const Logout = () => (
       </a>
     </form>
   </section>
-);
+)}
 
 export { Logout };

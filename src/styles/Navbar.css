@@ -9,6 +9,7 @@
 }
 
 .nav-list {
+  text-decoration: none;
   padding: 0;
   display: flex;
   flex-wrap: nowrap;
