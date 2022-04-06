@@ -32,7 +32,7 @@ const Login = () => {
       <p>
         Don't have an account?
         <Link className="signup-link" to="/signup">
-          Log In
+          Sign Up
         </Link>
       </p>
     </section>

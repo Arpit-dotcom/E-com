@@ -17,7 +17,7 @@ const Main = () => (
 
     <main className="container">
       {deals.map((sale,index) => (
-        <div key={index}>
+        <>
           <Link className="deals" to="/product">
             <img className="carousal" src={sale.deal} alt="deals.img" />
           </Link>
@@ -30,7 +30,7 @@ const Main = () => (
                 </Link>
             ))}
           </section>
-        </div>
+        </>
       ))}
     </main>
   </>
