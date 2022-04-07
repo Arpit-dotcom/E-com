@@ -38,7 +38,7 @@ const Main = () => {
               <h2>Total Price</h2>
               <h3>₹{totalPrice}</h3>
             </div>
-            <p>You will save ₹{discount} on the product</p>
+            <h3>You will save ₹{discount} on the product</h3>
           </section>
 
           <section className="card-footer">

@@ -105,3 +105,8 @@
   justify-content: center;
   margin-top: 8rem;
 }
+
+.productContainer .go-to-cart{
+  text-decoration: none;
+  color: var(--primary-color);
+}
