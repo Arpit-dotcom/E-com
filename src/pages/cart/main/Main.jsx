@@ -9,6 +9,7 @@ const Main = () => {
 
   return (
     <section className="margin-0 cartContainer">
+      <Card />
       <main className="sidebar">
         <section className="card only-text">
           <section className="margin-bottom-0_5 header">
@@ -50,8 +51,6 @@ const Main = () => {
           </section>
         </section>
       </main>
-
-      <Card />
     </section>
   );
 };

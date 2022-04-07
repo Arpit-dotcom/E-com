@@ -29,12 +29,13 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
     }
   };
   const clickHandler = () => {
-    console.log("cart");
+    if(toggleButton === true){
+      cartDispatch({
+        type: "ADD_TO_CART",
+        payload: { brand, image, price, title, rating, _id },
+      })
+    }
     setToggleButton(false);
-    cartDispatch({
-      type: "ADD_TO_CART",
-      payload: { brand, image, price, title, rating, _id },
-    });
   };
   return (
     <section className="card badge-card">
