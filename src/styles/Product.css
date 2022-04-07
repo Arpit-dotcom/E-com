@@ -6,7 +6,7 @@
 
 .productContainer .drawer {
   width: 15rem;
-  padding: 1rem 0;
+  padding: 1rem;
 }
 
 .productContainer .drawer .filter {
@@ -104,4 +104,9 @@
   display: flex;
   justify-content: center;
   margin-top: 8rem;
+}
+
+.productContainer .go-to-cart{
+  text-decoration: none;
+  color: var(--primary-color);
 }

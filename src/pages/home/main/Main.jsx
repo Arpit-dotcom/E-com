@@ -16,20 +16,18 @@ const Main = () => (
     </header>
 
     <main className="container">
-      {deals.map((sale) => (
+      {deals.map((sale,index) => (
         <>
           <Link className="deals" to="/product">
             <img className="carousal" src={sale.deal} alt="deals.img" />
           </Link>
           <section className="sub-container">
-            {sale.data.map((item) => (
-              <>
-                <Link to="/product">
+            {sale.data.map((item, index) => (
+                <Link to="/product" key={index}>
                   <div className="retina">
                     <img className="img-size" src={item} alt="card-image" />
                   </div>
                 </Link>
-              </>
             ))}
           </section>
         </>

@@ -15,10 +15,10 @@ const App = () => {
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/mock" element={<Mockman />} />
-        <Route path="*" element={<PageNotFound />} />
-        {/* <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
-        <Route path="/signup" element={<Signup />} /> */}
+        <Route path="/signup" element={<Signup />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />
     </div>
