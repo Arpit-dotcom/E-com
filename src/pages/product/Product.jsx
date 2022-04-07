@@ -41,10 +41,7 @@ const Product = () => {
   }, []);
 
   return(
-  <>
-    {console.log(params.category)}
     <Main />
-  </>
 )}
 
 export {Product}

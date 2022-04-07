@@ -1,6 +1,8 @@
 .cartContainer {
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 1fr;
+    width: 50%;
+    margin: auto;
     min-height: 100vh;
 }
 
@@ -9,7 +11,7 @@
 }
 
 .cartContainer .only-text{
-    width: 90%;
+    width: 100%;
 }
 
 .cartContainer .cart-text{

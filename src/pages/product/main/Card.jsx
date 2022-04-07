@@ -1,6 +1,9 @@
 import { useCart, useWishlist } from "contexts";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export const Card = ({ brand, image, price, title, rating, _id }) => {
+  const [toggleButton, setToggleButton] = useState(true);
   const { wishlistState, wishlistDispatch } = useWishlist();
   const { cartDispatch } = useCart();
   const inWishlist = wishlistState.wishlist.find((item) => item._id === _id);
@@ -24,6 +27,15 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
         payload: { brand, image, price, title, rating, _id },
       });
     }
+  };
+  const clickHandler = () => {
+    if(toggleButton === true){
+      cartDispatch({
+        type: "ADD_TO_CART",
+        payload: { brand, image, price, title, rating, _id },
+      })
+    }
+    setToggleButton(false);
   };
   return (
     <section className="card badge-card">
@@ -51,18 +63,16 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
           <strong>₹{price}</strong>
         </small>
       </div>
-      <section
-        className="card-footer"
-        onClick={() =>
-          cartDispatch({
-            type: "ADD_TO_CART",
-            payload: { brand, image, price, title, rating, _id },
-          })
-        }
-      >
+      <section className="card-footer" onClick={clickHandler}>
         <div className="icon">
           <a className="favourite" href="#">
-            <i className="fas fa-shopping-cart"></i> Add to Cart
+            {toggleButton ? (
+              <>
+                <i className="fas fa-shopping-cart"></i> Add to cart
+              </>
+            ) : (
+              <Link className="go-to-cart" to="/cart">Go to cart</Link>
+            )}
           </a>
         </div>
       </section>

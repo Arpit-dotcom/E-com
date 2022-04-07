@@ -11,10 +11,10 @@ const Navbar = () => {
   return (
     <>
       <nav className="simple-navigation">
-        <div className="nav-list">
+        <Link className="nav-list" to="/">
           <img className="logo" src={logoImage} alt="logo" />
           <h1 className="text">Shopzila</h1>
-        </div>
+        </Link>
 
         <input
           className="nav-search"

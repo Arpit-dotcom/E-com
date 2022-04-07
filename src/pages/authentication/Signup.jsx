@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import "styles/authentication/Signup.css";
+import { useEffect } from "react";
 
 const loginData = ["Firstname", "Lastname", "Email", "Password"];
-const Signup = () => (
+const Signup = () =>{ 
+  useEffect(() => {
+    document.title = "Signup | Shopzila";
+  }, []);
+  return(
   <section className="signupContainer">
     <div className="heading">
       <h1>
@@ -29,6 +34,6 @@ const Signup = () => (
       </Link>
     </p>
   </section>
-);
+)}
 
 export { Signup };

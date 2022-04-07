@@ -9,6 +9,7 @@ const Main = () => {
 
   return (
     <section className="margin-0 cartContainer">
+      <Card />
       <main className="sidebar">
         <section className="card only-text">
           <section className="margin-bottom-0_5 header">
@@ -38,7 +39,7 @@ const Main = () => {
               <h2>Total Price</h2>
               <h3>₹{totalPrice}</h3>
             </div>
-            <p>You will save ₹{discount} on the product</p>
+            <h3>You will save ₹{discount} on the product</h3>
           </section>
 
           <section className="card-footer">
@@ -50,8 +51,6 @@ const Main = () => {
           </section>
         </section>
       </main>
-
-      <Card />
     </section>
   );
 };
