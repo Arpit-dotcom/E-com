@@ -17,6 +17,6 @@
 .img-size{
     margin: 0;
     object-fit: cover;
-    height: auto;
+    height: 15rem;
     width: 25rem;
 }

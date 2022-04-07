@@ -1,7 +1,8 @@
 .signupContainer {
   font-size: 1rem;
   margin: auto;
-  margin-top: 5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   padding: 2rem;
   background-color: var(--secondary-color);
   width: 27rem;

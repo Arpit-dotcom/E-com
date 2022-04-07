@@ -25,7 +25,7 @@ const Signup = () => (
     <p>
       Already have an account?
       <Link className="signin-link" to="/login">
-        Sign In
+        Log In
       </Link>
     </p>
   </section>
