@@ -37,6 +37,7 @@ const Product = () => {
   const { dispatch } = useProduct();
   const { category } = useParams();
   useEffect(() => {
+    document.title = "Product | Shopzila";
     getQueriedCategoryProducts(category, dispatch);
   }, []);
 
