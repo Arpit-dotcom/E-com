@@ -17,9 +17,7 @@ const cartReducer = (cartState, cartAction) => {
       return {
         ...cartState,
         cart: removeFromCart(cartState.cart, cartAction.payload),
-        totalItemsPrice:
-          cartState.totalItemsPrice -
-          cartAction.payload.price * cartAction.payload.quantity,
+        totalItemsPrice: cartState.totalItemsPrice - cartAction.payload.price,
       };
     case "INCREASE_QUANTITY":
       return {
