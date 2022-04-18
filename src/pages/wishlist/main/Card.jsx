@@ -10,11 +10,11 @@ const Card = () => {
           <img className="img" src={product.image} alt="wishlist-products" />
 
           <section className="header">
-            <h1 className="text">
+            <h2 className="text">
               <strong>{product.brand}</strong>
-            </h1>
-            <h2 className="brand">{product.title}</h2>
-            <h3 className="price">{product.price}</h3>
+            </h2>
+            <h3 className="brand">{product.title}</h3>
+            <p className="price">{product.price}</p>
           </section>
 
           <section

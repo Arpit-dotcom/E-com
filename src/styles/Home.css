@@ -6,18 +6,43 @@
 
 .deals{
     width: 100%;
-    object-fit: cover;
-    height: 100%;
+}
+
+.home-heading{
+    margin: 1rem 0;
+    width: 100%;
+    text-align: center;
 }
 
 .carousal{
-    width: 95vw;
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+}
+
+.retina{
+    position: relative;
+}
+
+.banner{
+    color: var(--default);
+    position: absolute;
+    top: 6rem;
+    background-color: var(--white-section-hover);
+    width: 100%;
 }
 
 .img-size{
     margin: 0;
+    border-radius: 1rem;
     object-fit: cover;
     height: 15rem;
     width: 25rem;
     height: 15rem;
+}
+
+@media screen and (max-width: 480px) {
+    .img-size{
+        width: 15rem;
+    }
 }

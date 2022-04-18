@@ -1,6 +1,6 @@
 const deals = [
   {
-    deal: "https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGRpc2NvdW50fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+    deal: "https://media.istockphoto.com/photos/woman-in-the-shop-to-buy-shoes-picture-id973374522?b=1&k=20&m=973374522&s=170667a&w=0&h=SGYpdFX6opwhyTW9AVPJUheRUbJg1xTcds_k_vcPzcY=",
     data: [
       {
         src: "https://images.unsplash.com/photo-1628413993904-94ecb60f1239?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXMlMjBzaG9wfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
