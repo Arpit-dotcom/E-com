@@ -15,13 +15,14 @@
     align-self: flex-start;
     width: 100%;
     flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .wishlistContainer .card{
     padding: 0;
     margin: 1rem;
     background-color: var(--white-section);
-    height: 18rem;
+    height: 22rem;
 }
 
 .wishlistContainer .horizontal .img{
