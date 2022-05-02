@@ -1,4 +1,5 @@
 import { useProduct } from "contexts/ProductContext";
+import { Link } from "react-router-dom";
 
 const categories = [
   "Headphones",
@@ -35,9 +36,13 @@ const Sidebar = () => {
     <aside className="drawer">
       <div className="filter">
         <h2>Filters</h2>
-        <button className="clear-filter" onClick={() => clickHandler("CLEAR")}>
+        <Link
+          to="/product"
+          className="clear-filter"
+          onClick={() => clickHandler("CLEAR")}
+        >
           <u>Clear Filters</u>
-        </button>
+        </Link>
       </div>
       <h3 className="heading">CATEGORIES</h3>
       <ul className="sub-drawer stacked-list">

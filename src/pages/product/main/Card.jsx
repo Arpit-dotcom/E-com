@@ -6,8 +6,10 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
   const [toggleButton, setToggleButton] = useState(true);
   const { wishlistState, wishlistDispatch } = useWishlist();
   const { cartDispatch } = useCart();
+
   const inWishlist = wishlistState.wishlist.find((item) => item._id === _id);
   const wishlistButton = !inWishlist ? "favorite_border" : "favorite";
+  
   const wishlistButtonHandler = ({
     brand,
     image,

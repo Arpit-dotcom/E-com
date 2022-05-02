@@ -2,12 +2,12 @@ import React from "react";
 import "styles/Navbar.css";
 import logoImage from "assets/logo.png";
 import { Link } from "react-router-dom";
-import { useWishlist } from "contexts/WishlistContext";
-import { useCart } from "contexts/CartContext";
+import { useAuth, useWishlist, useCart } from "contexts";
 
 const Navbar = () => {
   const { wishlistState } = useWishlist();
-  const {cartState} = useCart();
+  const { cartState } = useCart();
+  const { isLoggedIn } = useAuth();
   return (
     <>
       <nav className="simple-navigation">
@@ -25,9 +25,11 @@ const Navbar = () => {
 
         <div className="nav-list">
           <div className="list-item icons">
-            <Link className="profile" to="/login">
+            <Link className="profile" to={!isLoggedIn ? "/login" : "/logout"}>
               <span className="material-icons"> account_circle </span>
-              <span className="header-text">Profile</span>
+              <span className="header-text">
+                {!isLoggedIn ? "Login" : "Logout"}
+              </span>
             </Link>
 
             <Link className="wishlist " to="/wishlist">
@@ -47,6 +49,7 @@ const Navbar = () => {
         </div>
       </nav>
     </>
-  );}
+  );
+};
 
 export { Navbar };

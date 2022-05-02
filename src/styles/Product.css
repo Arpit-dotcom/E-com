@@ -16,8 +16,10 @@
 
 .filter .clear-filter {
   cursor: pointer;
+  color: var(--default);
   background-color: var(--white-section);
   border: none;
+  margin-top: 0.3rem;
   font-size: 1rem;
 }
 
