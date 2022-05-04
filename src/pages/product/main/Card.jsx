@@ -1,8 +1,10 @@
-import { useCart, useWishlist } from "contexts";
-import { Link } from "react-router-dom";
+import { useAuth, useCart, useWishlist } from "contexts";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export const Card = ({ brand, image, price, title, rating, _id }) => {
+  const {isLoggedIn} = useAuth();
+  const navigate = useNavigate();
   const [toggleButton, setToggleButton] = useState(true);
   const { wishlistState, wishlistDispatch } = useWishlist();
   const { cartDispatch } = useCart();
@@ -18,26 +20,37 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
     rating,
     _id,
   }) => {
-    if (!inWishlist) {
-      wishlistDispatch({
-        type: "ADD_TO_WISHLIST",
-        payload: { brand, image, price, title, rating, _id },
-      });
-    } else {
-      wishlistDispatch({
-        type: "REMOVE_FROM_WISHLIST",
-        payload: { brand, image, price, title, rating, _id },
-      });
+    if (!isLoggedIn) {
+      navigate("/login");
+    }
+    else{
+      if (!inWishlist) {
+        wishlistDispatch({
+          type: "ADD_TO_WISHLIST",
+          payload: { brand, image, price, title, rating, _id },
+        });
+      } 
+      else {
+        wishlistDispatch({
+          type: "REMOVE_FROM_WISHLIST",
+          payload: { brand, image, price, title, rating, _id },
+        });
+      }
     }
   };
   const clickHandler = () => {
-    if(toggleButton === true){
-      cartDispatch({
-        type: "ADD_TO_CART",
-        payload: { brand, image, price, title, rating, _id },
-      })
+    if(!isLoggedIn){
+      navigate("/login")
     }
-    setToggleButton(false);
+    else{
+      if (toggleButton === true) {
+        cartDispatch({
+          type: "ADD_TO_CART",
+          payload: { brand, image, price, title, rating, _id },
+        });
+      }
+      setToggleButton(false);
+    }
   };
   return (
     <section className="card badge-card">
