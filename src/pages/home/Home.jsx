@@ -1,6 +1,7 @@
 import { Main } from "./main/Main";
 import "styles/Home.css";
 import { useEffect, useState } from "react";
+import { Footer } from "components";
 import axios from "axios";
 
 export const Home = () => {
@@ -13,5 +14,10 @@ export const Home = () => {
       setCategories(categories);
     })();
   }, []);
-  return <Main categories={categories} />;
+  return (
+    <>
+      <Main categories={categories} />
+      <Footer />
+    </>
+  );
 };

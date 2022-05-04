@@ -1,7 +1,7 @@
 import "./App.css";
 import { Cart, Home, Login, Logout, Product, Signup, Wishlist } from "./pages";
 import { Routes, Route } from "react-router-dom";
-import { Footer, Navbar } from "components";
+import { Navbar } from "components";
 import { PageNotFound } from "pages/404page";
 import { RequiredAuth } from "RequiredAuth";
 import Mockman from "mockman-js";
@@ -37,7 +37,6 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/mock" element={<Mockman />} />
       </Routes>
-      <Footer />
     </div>
   );
 };
