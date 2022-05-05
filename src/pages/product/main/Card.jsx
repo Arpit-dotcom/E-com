@@ -72,7 +72,7 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
       <img className="img" src={image} alt="card-image" />
       <div className="rating">
         {rating}
-        <i class="fas fa-star"></i>
+        <i className="fas fa-star"></i>
       </div>
       <div className="card-text">
         <h3>{brand}</h3>
