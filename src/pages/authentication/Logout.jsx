@@ -1,25 +1,14 @@
 import "styles/authentication/Logout.css";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "contexts";
+import { useLogout } from "utils";
 
-const Logout = () =>{ 
-  const {setIsLoggedIn} = useAuth();
-  const navigate = useNavigate();
+const Logout = () => {
+
+  const { logOutHandler, notLogOutHandler } = useLogout();
 
   useEffect(() => {
     document.title = "Logout | Shopzila";
   }, []);
-
-  const notLogOutHandler = () => {
-    navigate("/product");
-  }
-
-  const logOutHandler = () =>{
-    localStorage.clear();
-    setIsLoggedIn(false);
-    navigate("/product");
-  }
 
   return (
     <section className="logoutContainer">
@@ -32,15 +21,22 @@ const Logout = () =>{
       </div>
 
       <form className="logout" action="logout">
-        <button className="cursor-pointer primary" onClick={()=>notLogOutHandler()}>
+        <button
+          className="cursor-pointer primary"
+          onClick={() => notLogOutHandler()}
+        >
           Just kidding
         </button>
 
-        <button className="cursor-pointer secondary" onClick={()=>logOutHandler()}>
+        <button
+          className="cursor-pointer secondary"
+          onClick={() => logOutHandler()}
+        >
           Log Me Out
         </button>
       </form>
     </section>
-  );}
+  );
+};
 
 export { Logout };

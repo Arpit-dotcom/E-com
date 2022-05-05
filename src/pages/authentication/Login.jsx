@@ -1,41 +1,15 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "styles/authentication/Login.css";
 import { useEffect } from "react";
-import axios from "axios";
-import { useState } from "react";
-import { useAuth } from "contexts";
+import { useLogin } from "utils";
 
 const Login = () => {
-  const [_email, setEmail] = useState("");
-  const [_password, setPassword] = useState("");
-  const {setIsLoggedIn} = useAuth();
-  const navigate = useNavigate();
-  const location = useLocation();
- 
+
   useEffect(() => {
     document.title = "Login | Shopzila";
   }, []);
 
-  const loginHandler = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await axios.post("/api/auth/login", {
-        email: _email,
-        password: _password,
-      });
-      localStorage.setItem("token",response.data.encodedToken);
-      setIsLoggedIn(true);
-      navigate(location.state?.from?.pathname || "/product", { replace: true });
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  const dummyHandler = (event) => {
-    event.preventDefault();
-    setEmail("arpitkumar@gmail.com");
-    setPassword("arpit1234");
-  };
+  const {loginHandler,dummyHandler,_email,_password,setEmail,setPassword} = useLogin();
 
   return (
     <section className="loginContainer">
@@ -55,7 +29,7 @@ const Login = () => {
             type="email"
             placeholder="Email"
             value={_email}
-            // onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
         </label>
@@ -66,7 +40,7 @@ const Login = () => {
             type="password"
             placeholder="Password"
             value={_password}
-            // onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
         </label>
