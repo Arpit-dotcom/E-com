@@ -1,8 +1,27 @@
 import { useCart, useWishlist } from "contexts";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Card = () => {
   const { wishlistState, wishlistDispatch } = useWishlist();
   const { cartDispatch } = useCart();
+
+  const addToCart = (product) => {
+    cartDispatch({
+      type: "ADD_TO_CART",
+      payload: product,
+    });
+    toast.success("Item add to cart!");
+  };
+
+  const removeFromWishlist = (product) => {
+    wishlistDispatch({
+      type: "REMOVE_FROM_WISHLIST",
+      payload: product,
+    });
+    toast.error("Item removed from wishlist!");
+  };
+
   return (
     <main className="sub-container">
       {wishlistState.wishlist.map((product) => (
@@ -17,15 +36,7 @@ const Card = () => {
             <p className="price">{product.price}</p>
           </section>
 
-          <section
-            className="card-footer"
-            onClick={() =>
-              cartDispatch({
-                type: "ADD_TO_CART",
-                payload: product,
-              })
-            }
-          >
+          <section className="card-footer" onClick={() => addToCart(product)}>
             <div className="icon">
               <a className="favourite" href="#">
                 <i className="fas fa-shopping-cart"></i>Add to Cart
@@ -34,12 +45,7 @@ const Card = () => {
           </section>
           <section
             className="card-footer"
-            onClick={() =>
-              wishlistDispatch({
-                type: "REMOVE_FROM_WISHLIST",
-                payload: product,
-              })
-            }
+            onClick={() => removeFromWishlist(product)}
           >
             <div className="icon">
               <a className="favourite" href="#">
@@ -49,6 +55,7 @@ const Card = () => {
           </section>
         </section>
       ))}
+      <ToastContainer />
     </main>
   );
 };

@@ -1,6 +1,8 @@
 import { useAuth, useCart, useWishlist } from "contexts";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Card = ({ brand, image, price, title, rating, _id }) => {
   const {isLoggedIn} = useAuth();
@@ -29,12 +31,14 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
           type: "ADD_TO_WISHLIST",
           payload: { brand, image, price, title, rating, _id },
         });
+        toast.success("Item add to wishlist!");
       } 
       else {
         wishlistDispatch({
           type: "REMOVE_FROM_WISHLIST",
           payload: { brand, image, price, title, rating, _id },
         });
+        toast.error("Item removed from wishlist!");
       }
     }
   };
@@ -49,6 +53,7 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
           payload: { brand, image, price, title, rating, _id },
         });
       }
+      toast.success("Item add to cart!");
       setToggleButton(false);
     }
   };
@@ -96,6 +101,7 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
           </span>
         </div>
       </section>
+      <ToastContainer />
     </section>
   );
 };

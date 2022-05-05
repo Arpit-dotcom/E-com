@@ -1,8 +1,34 @@
 import { useCart, useWishlist } from "contexts";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Card = () => {
   const { wishlistDispatch } = useWishlist();
   const { cartState, cartDispatch } = useCart();
+
+  const addToWishlist = (product) => {
+    wishlistDispatch({
+      type: "ADD_TO_WISHLIST",
+      payload: product,
+    });
+    toast.success("Item add to wishlist!");
+  };
+
+  const increaseHandler = (product) => {
+    cartDispatch({
+      type: "INCREASE_QUANTITY",
+      payload: product,
+    });
+    toast.success("Item quantity increased!");
+  };
+
+  const decreaseHandler = (product) => {
+    cartDispatch({
+      type: "DECREASE_QUANTITY",
+      payload: product,
+    });
+    toast.error("Item quantity decreased!");
+  };
 
   return (
     <main className="sub-container">
@@ -18,24 +44,14 @@ export const Card = () => {
               <section className="card-footer">
                 <button
                   className="icon-button"
-                  onClick={() =>
-                    cartDispatch({
-                      type: "DECREASE_QUANTITY",
-                      payload: product,
-                    })
-                  }
+                  onClick={() => decreaseHandler(product)}
                 >
                   -
                 </button>
                 <div className="icon-quantity">{product.quantity}</div>
                 <button
                   className="icon-button"
-                  onClick={() =>
-                    cartDispatch({
-                      type: "INCREASE_QUANTITY",
-                      payload: product,
-                    })
-                  }
+                  onClick={() => increaseHandler(product)}
                 >
                   +
                 </button>
@@ -43,12 +59,7 @@ export const Card = () => {
 
               <section
                 className="card-footer"
-                onClick={() =>
-                  wishlistDispatch({
-                    type: "ADD_TO_WISHLIST",
-                    payload: product,
-                  })
-                }
+                onClick={() => addToWishlist(product)}
               >
                 <div className="margin-top-0_5 icon">
                   <a className="favourite" href="#">
@@ -61,6 +72,7 @@ export const Card = () => {
           </div>
         </section>
       ))}
+      <ToastContainer />
     </main>
   );
 };

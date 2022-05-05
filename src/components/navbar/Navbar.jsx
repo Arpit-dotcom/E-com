@@ -1,14 +1,16 @@
 import React from "react";
 import "styles/Navbar.css";
-import logoImage from "assets/logo.png";
 import { Link, useLocation } from "react-router-dom";
-import { useAuth, useWishlist, useCart } from "contexts";
+import { useAuth, useWishlist, useCart, useProduct } from "contexts";
+import { useSearchBar } from "utils";
 
 const Navbar = () => {
-  const {pathname} = useLocation();
+  const { pathname } = useLocation();
   const { wishlistState } = useWishlist();
   const { cartState } = useCart();
   const { isLoggedIn } = useAuth();
+  const { searchBarHandler, searchInput } = useSearchBar();
+
   return (
     <>
       <nav className="simple-navigation">
@@ -31,7 +33,9 @@ const Navbar = () => {
             className="nav-search"
             id="items-disabled"
             type="text"
+            value={searchInput}
             placeholder="Search for product, brands and more"
+            onChange={(event) => searchBarHandler(event)}
           />
         )}
 

@@ -8,6 +8,7 @@ export {
   getCategorisedProduct,
   getRatingProducts,
   getSortingProduts,
+  useSearchBar,
 } from "./filter";
 export { addToWishlist, removeFromWishlist } from "./wishlist";
 export { useLogin } from "./login";
