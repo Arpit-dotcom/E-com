@@ -70,7 +70,10 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
         <span className="material-icons-outlined">{wishlistButton}</span>
       </button>
       <img className="img" src={image} alt="card-image" />
-      <div className="rating">{rating}star</div>
+      <div className="rating">
+        {rating}
+        <i class="fas fa-star"></i>
+      </div>
       <div className="card-text">
         <h3>{brand}</h3>
         <p>{title}</p>
@@ -86,7 +89,9 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
                 <i className="fas fa-shopping-cart"></i> Add to cart
               </>
             ) : (
-              <Link className="go-to-cart" to="/cart">Go to cart</Link>
+              <Link className="go-to-cart" to="/cart">
+                Go to cart
+              </Link>
             )}
           </a>
         </div>

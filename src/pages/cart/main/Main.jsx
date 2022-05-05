@@ -16,10 +16,14 @@ const Main = () => {
             <h1 className="margin-bottom-0_5 brand">
               <u>Price Details</u>
             </h1>
+
             <div className="margin-bottom-0_5 cart-text">
               <h3>Quantity</h3>
               <h3>{cart.length}</h3>
             </div>
+
+            <div className="margin-top-1 margin-bottom-1 divider"></div>
+
             <div className="cart-text">
               <h3>Price</h3>
               <h3>₹{totalItemsPrice}</h3>
@@ -35,10 +39,14 @@ const Main = () => {
               <h3>Delivery Charges</h3>
               <h3>₹40</h3>
             </div>
+
             <div className="margin-bottom-0_5 cart-text">
               <h3>Total Price</h3>
               <h3>₹{totalPrice}</h3>
             </div>
+
+            <div className="margin-top-1 margin-bottom-1 divider"></div>
+
             <h4>You will save ₹{discount} on the product</h4>
           </section>
 

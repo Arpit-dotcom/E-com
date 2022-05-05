@@ -3,18 +3,6 @@ import { Link } from "react-router-dom";
 const Main = ({ categories }) => {
   return (
     <>
-      <header className="head">
-        <p>
-          <a className="home" href="#">
-            <strong>Home</strong>
-          </a>
-          /
-          <Link className="product" to="/product">
-            Product
-          </Link>
-        </p>
-      </header>
-
       <main className="container">
         <div className="deals">
           <img

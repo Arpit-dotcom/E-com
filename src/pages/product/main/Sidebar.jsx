@@ -41,9 +41,12 @@ const Sidebar = () => {
           className="clear-filter"
           onClick={() => clickHandler("CLEAR")}
         >
-          <u>Clear Filters</u>
+          Clear Filters
         </Link>
       </div>
+
+      <div className="margin-top-1 margin-bottom-1 divider"></div>
+
       <h3 className="heading">CATEGORIES</h3>
       <ul className="sub-drawer stacked-list">
         {categories.map((category, index) => (
@@ -63,6 +66,9 @@ const Sidebar = () => {
           </li>
         ))}
       </ul>
+
+      <div className="margin-top-1 margin-bottom-1 divider"></div>
+
       <h3 className="heading">RATING</h3>
       <ul className="sub-drawer stacked-list">
         {ratings.map((item, index) => (
@@ -80,6 +86,9 @@ const Sidebar = () => {
           </li>
         ))}
       </ul>
+
+      <div className="margin-top-1 margin-bottom-1 divider"></div>
+
       <h3 className="heading">SORTBY</h3>
       <ul className="sub-drawer stacked-list">
         {sortBy.map((item, index) => (

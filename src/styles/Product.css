@@ -7,6 +7,11 @@
 .productContainer .drawer {
   width: 15rem;
   padding: 1rem;
+  height: 38rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: sticky;
+  top: 6rem;
 }
 
 .productContainer .drawer .filter {
@@ -32,6 +37,7 @@
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  padding: 2rem 0;
 }
 
 .productContainer .card {
@@ -68,8 +74,12 @@
 
 .productContainer .rating {
   position: absolute;
-  right: 0.5rem;
+  right: 0;
   top: 10rem;
+}
+
+.productContainer .fa-star{
+  margin-left: 2px;
 }
 
 .list-item{
@@ -106,7 +116,7 @@
 }
 
 .productContainer .product-empty {
-  font-size: 5rem;
+  font-size: 3rem;
   display: flex;
   justify-content: center;
   margin-top: 8rem;

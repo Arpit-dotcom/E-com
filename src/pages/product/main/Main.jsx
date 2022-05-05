@@ -1,4 +1,3 @@
-import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
 import { useProduct } from "contexts/ProductContext";
 import { Card } from "./Card";
@@ -8,8 +7,6 @@ const Main = () => {
 
   return (
     <>
-      <Header />
-
       <section className="productContainer">
         <Sidebar />
 

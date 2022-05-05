@@ -13,8 +13,8 @@ export const Card = () => {
               <h2 className="text">
                 <strong>{product.brand}</strong>
               </h2>
-              <h3 className="margin-bottom-0_5 brand">{product.title}</h3>
-              <p className="margin-bottom-0_5 price">{product.price}</p>
+              <h3 className="margin-bottom-1 brand">{product.title}</h3>
+              <p className="margin-bottom-1 price">{product.price}</p>
               <section className="card-footer">
                 <button
                   className="icon-button"
