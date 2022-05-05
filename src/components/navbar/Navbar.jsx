@@ -1,33 +1,47 @@
 import React from "react";
 import "styles/Navbar.css";
 import logoImage from "assets/logo.png";
-import { Link } from "react-router-dom";
-import { useWishlist } from "contexts/WishlistContext";
-import { useCart } from "contexts/CartContext";
+import { Link, useLocation } from "react-router-dom";
+import { useAuth, useWishlist, useCart } from "contexts";
 
 const Navbar = () => {
+  const {pathname} = useLocation();
   const { wishlistState } = useWishlist();
-  const {cartState} = useCart();
+  const { cartState } = useCart();
+  const { isLoggedIn } = useAuth();
   return (
     <>
       <nav className="simple-navigation">
-        <Link className="nav-list" to="/">
-          <img className="logo" src={logoImage} alt="logo" />
+        <span className="nav-list" to="/">
           <h1 className="text">Shopzila</h1>
-        </Link>
+          <header className="head">
+            <p>
+              <Link className="home" to="/">
+                Home
+              </Link>
+              <Link className="product" to="/product">
+                Product
+              </Link>
+            </p>
+          </header>
+        </span>
 
-        <input
-          className="nav-search"
-          id="items-disabled"
-          type="text"
-          placeholder="Search for product, brands and more"
-        />
+        {pathname === "/product" && (
+          <input
+            className="nav-search"
+            id="items-disabled"
+            type="text"
+            placeholder="Search for product, brands and more"
+          />
+        )}
 
         <div className="nav-list">
           <div className="list-item icons">
-            <Link className="profile" to="/login">
+            <Link className="profile" to={!isLoggedIn ? "/login" : "/logout"}>
               <span className="material-icons"> account_circle </span>
-              <span className="header-text">Profile</span>
+              <span className="header-text">
+                {!isLoggedIn ? "Login" : "Logout"}
+              </span>
             </Link>
 
             <Link className="wishlist " to="/wishlist">
@@ -47,6 +61,7 @@ const Navbar = () => {
         </div>
       </nav>
     </>
-  );}
+  );
+};
 
 export { Navbar };

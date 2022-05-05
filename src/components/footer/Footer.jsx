@@ -1,56 +1,33 @@
 import React from "react";
 import "styles/Footer.css";
 
-const items = ["Headphones","Watch","Sunglasses","Bag"];
-const Footer = () => (
-  <>
+const contactLinks = [
+  { link: "https://github.com/Arpit-dotcom/", icon: "fab fa-github" },
+  { link: "https://twitter.com/Arpit_00_02", icon: "fab fa-twitter" },
+  {
+    link: "https://www.linkedin.com/in/arpit-kumar-4b11211a4/",
+    icon: "fab fa-linkedin-in",
+  },
+];
+const Footer = () => {
+  return (
     <footer className="main-footer">
-      <div className="footer-link" id="items-disabled">
-        <h2 className="header">
-          <u>Online Shopping</u>
-        </h2>
-        <ul className="stacked-list">
-          {items.map((item, index) => (
-            <li className="list-item" key={index}>
-              <a className="link" href="" target="_blank">
-                <small>{item}</small>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <h2 className="footer-header">CONTACT US</h2>
 
-      <div className="footer-link" id="mob-disabled">
-        <h3 className="header">
-          <u>Contacts</u>
-        </h3>
-        <ul className="stacked-list">
-          <li className="list-item">
-            <a className="link" href="" target="_blank">
-              <small>7988909084</small>
-            </a>
-          </li>
-          <li className="list-item">
-            <a className="link" href="" target="_blank">
-              <small>arpitkumar01923@gmail.com</small>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div className="retina">
-        <img
-          className="img-size"
-          src="https://constant.myntassets.com/web/assets/img/6c3306ca-1efa-4a27-8769-3b69d16948741574602902452-original.png"
-          alt=""
-        />
-        <p className="text">
-          <strong>100% ORIGINAL </strong>guarantee for all products at
-          Shop-zila.com
-        </p>
+      <div className="footer-link">
+        {contactLinks.map((contactLink, index) => (
+          <a
+            className="link"
+            href={contactLink.link}
+            target="_blank"
+            key={index}
+          >
+            <i className={contactLink.icon}></i>
+          </a>
+        ))}
       </div>
     </footer>
-  </>
-);
+  );
+};
 
 export { Footer };

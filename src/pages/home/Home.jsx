@@ -1,12 +1,23 @@
-import {Main} from "./main/Main";
+import { Main } from "./main/Main";
 import "styles/Home.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Footer } from "components";
+import axios from "axios";
 
-export const Home = () =>{ 
+export const Home = () => {
+  const [categories, setCategories] = useState([]);
   useEffect(() => {
     document.title = "Home | Shopzila";
+    (async () => {
+      const response = await axios("/api/categories");
+      const categories = response.data.categories;
+      setCategories(categories);
+    })();
   }, []);
   return (
-      <Main />
-  )}
-  
+    <>
+      <Main categories={categories} />
+      <Footer />
+    </>
+  );
+};

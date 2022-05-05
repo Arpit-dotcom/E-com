@@ -64,8 +64,10 @@
 }
 
 .wishlistContainer .wishlist-empty{
-    font-size: 3rem;
+    margin-top: 5rem;
+}
+
+.wishlistContainer .wishlist-empty > h2, .wishlist-empty > p{
     display: flex;
     justify-content: center;
-    margin-top: 15rem;
 }

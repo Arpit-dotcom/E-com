@@ -6,7 +6,6 @@ import { useProduct } from "contexts";
 
 
 const Product = () => {
-  let params = useParams();
 
   const getQueriedCategoryProducts= async(category, dispatch) => {
   if (category) {
