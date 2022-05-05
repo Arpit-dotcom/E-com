@@ -83,17 +83,17 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
       </div>
       <section className="card-footer" onClick={clickHandler}>
         <div className="icon">
-          <a className="favourite" href="#">
+          <span className="favourite">
             {toggleButton ? (
-              <>
+              <div className="cursor-pointer">
                 <i className="fas fa-shopping-cart"></i> Add to cart
-              </>
+              </div>
             ) : (
-              <Link className="go-to-cart" to="/cart">
+              <Link className="cursor-pointer go-to-cart" to="/cart">
                 Go to cart
               </Link>
             )}
-          </a>
+          </span>
         </div>
       </section>
     </section>
