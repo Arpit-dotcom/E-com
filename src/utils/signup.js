@@ -5,7 +5,7 @@ import { signUpReducer } from "reducer";
 import { useAuth } from "contexts";
 
 export const useSignup = () => {
-  const { setIsLoggedIn } = useAuth();
+  const { setIsLoggedIn, setToken } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -27,7 +27,8 @@ export const useSignup = () => {
         password: signUpState.password,
         confirmPassword: signUpState.confirmPassword,
       });
-      localStorage.setItem("token", response.data.encodedToken);
+      // localStorage.setItem("token", response.data.encodedToken);
+      setToken(response.data.encodedToken);
       setIsLoggedIn(true);
       navigate(location.state?.from?.pathname || "/product", { replace: true });
     } catch (e) {
