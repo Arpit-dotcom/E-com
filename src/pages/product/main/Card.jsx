@@ -1,48 +1,66 @@
 import { useAuth, useCart, useWishlist } from "contexts";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 
 export const Card = ({ brand, image, price, title, rating, _id }) => {
-  const {isLoggedIn} = useAuth();
+  const { isLoggedIn, token } = useAuth();
   const navigate = useNavigate();
   const [toggleButton, setToggleButton] = useState(true);
   const { wishlistState, wishlistDispatch } = useWishlist();
   const { cartDispatch } = useCart();
+  const product = { brand, image, price, title, rating, _id };
 
   const inWishlist = wishlistState.wishlist.find((item) => item._id === _id);
   const wishlistButton = !inWishlist ? "favorite_border" : "favorite";
-  
-  const wishlistButtonHandler = ({
-    brand,
-    image,
-    price,
-    title,
-    rating,
-    _id,
-  }) => {
+
+  const wishlistButtonHandler = async (productId) => {
     if (!isLoggedIn) {
       navigate("/login");
-    }
-    else{
+    } else {
       if (!inWishlist) {
-        wishlistDispatch({
-          type: "ADD_TO_WISHLIST",
-          payload: { brand, image, price, title, rating, _id },
-        });
-      } 
-      else {
-        wishlistDispatch({
-          type: "REMOVE_FROM_WISHLIST",
-          payload: { brand, image, price, title, rating, _id },
-        });
+        try {
+          const response = await axios.post(
+            "/api/user/wishlist",
+            { product },
+            {
+              headers: {
+                authorization: token,
+              },
+            }
+          );
+          wishlistDispatch({
+            type: "ADD_TO_WISHLIST",
+            payload: response.data.wishlist,
+          });
+        } catch (error) {
+          alert(error);
+        }
+      } else {
+        try {
+          const response = await axios.delete(
+            `/api/user/wishlist/${productId}`,
+            {
+              headers: {
+                authorization: token,
+              },
+            }
+          );
+          wishlistDispatch({
+            type: "REMOVE_FROM_WISHLIST",
+            payload: response.data.wishlist,
+          });
+        } catch (error) {
+          alert(error);
+        }
       }
     }
   };
+
   const clickHandler = () => {
-    if(!isLoggedIn){
-      navigate("/login")
-    }
-    else{
+    if (!isLoggedIn) {
+      navigate("/login");
+    } else {
       if (toggleButton === true) {
         cartDispatch({
           type: "ADD_TO_CART",
@@ -52,20 +70,12 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
       setToggleButton(false);
     }
   };
+
   return (
     <section className="card badge-card">
       <button
         className="wishlist-button"
-        onClick={() =>
-          wishlistButtonHandler({
-            brand,
-            image,
-            price,
-            title,
-            rating,
-            _id,
-          })
-        }
+        onClick={() => wishlistButtonHandler(_id)}
       >
         <span className="material-icons-outlined">{wishlistButton}</span>
       </button>

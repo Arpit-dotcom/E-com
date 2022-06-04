@@ -9,7 +9,7 @@ export {
   getRatingProducts,
   getSortingProduts,
 } from "./filter";
-export { addToWishlist, removeFromWishlist } from "./wishlist";
+// export {  } from "./wishlist";
 export { useLogin } from "./login";
 export { useLogout } from "./logout";
 export { useSignup } from "./signup";

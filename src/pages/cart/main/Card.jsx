@@ -1,8 +1,30 @@
-import { useCart, useWishlist } from "contexts";
+import axios from "axios";
+import { useAuth, useCart, useWishlist } from "contexts";
 
 export const Card = () => {
   const { wishlistDispatch } = useWishlist();
   const { cartState, cartDispatch } = useCart();
+  const { token } = useAuth();
+
+  const addWishlistHandler = async (product) => {
+    try {
+      const response = await axios.post(
+        "/api/user/wishlist",
+        { product },
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      wishlistDispatch({
+        type: "ADD_TO_WISHLIST",
+        payload: response.data.wishlist,
+      });
+    } catch (error) {
+      alert(error);
+    }
+  };
 
   return (
     <main className="sub-container">
@@ -43,12 +65,7 @@ export const Card = () => {
 
               <section
                 className="card-footer"
-                onClick={() =>
-                  wishlistDispatch({
-                    type: "ADD_TO_WISHLIST",
-                    payload: product,
-                  })
-                }
+                onClick={() => addWishlistHandler(product)}
               >
                 <div className="margin-top-0_5 icon">
                   <a className="favourite" href="#">

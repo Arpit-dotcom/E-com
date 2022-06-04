@@ -1,8 +1,29 @@
-import { useCart, useWishlist } from "contexts";
+import axios from "axios";
+import { useAuth, useCart, useWishlist } from "contexts";
 
 const Card = () => {
   const { wishlistState, wishlistDispatch } = useWishlist();
+  const { token } = useAuth();
   const { cartDispatch } = useCart();
+
+  const deleteWishlistHandler = async (productId) => {
+    try {
+      const response = await axios.delete(`/api/user/wishlist/${productId}`, {
+        headers: {
+          authorization: token,
+        },
+      });
+      wishlistDispatch({
+        type: "REMOVE_FROM_WISHLIST",
+        payload: response.data.wishlist,
+      });
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  // const cartHandler = () => {}
+
   return (
     <main className="sub-container">
       {wishlistState.wishlist.map((product) => (
@@ -34,12 +55,7 @@ const Card = () => {
           </section>
           <section
             className="card-footer"
-            onClick={() =>
-              wishlistDispatch({
-                type: "REMOVE_FROM_WISHLIST",
-                payload: product,
-              })
-            }
+            onClick={() => deleteWishlistHandler(product._id)}
           >
             <div className="icon">
               <a className="favourite" href="#">
