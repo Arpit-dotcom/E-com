@@ -1,34 +1,11 @@
-import { useCart, useWishlist } from "contexts";
+import { useCart, useWishlist, useAuth } from "contexts";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-const Card = () => {
-  const { wishlistState, wishlistDispatch } = useWishlist();
-  const { cartDispatch } = useCart();
-
-  const addToCart = (product) => {
-    cartDispatch({
-      type: "ADD_TO_CART",
-      payload: product,
-    });
-    toast.success("Item add to cart!");
-  };
-
-  const removeFromWishlist = (product) => {
-    wishlistDispatch({
-      type: "REMOVE_FROM_WISHLIST",
-      payload: product,
-    });
-    toast.error("Item removed from wishlist!");
-
 import axios from "axios";
-import { useAuth, useCart, useWishlist } from "contexts";
-import { useState } from "react";
 import { getCart } from "utils";
 
 const Card = () => {
   const { wishlistState, wishlistDispatch } = useWishlist();
-  const [toggleButton, setToggleButton] = useState(true);
   const { token } = useAuth();
   const { cartState, cartDispatch } = useCart();
 
@@ -43,6 +20,7 @@ const Card = () => {
         type: "REMOVE_FROM_WISHLIST",
         payload: response.data.wishlist,
       });
+      toast.error("Item removed from wishlist!");
     } catch (error) {
       alert(error);
     }
@@ -65,6 +43,7 @@ const Card = () => {
           type: "ADD_TO_CART",
           payload: response.data.cart,
         });
+        toast.success("Item add to cart!");
       } catch (error) {
         alert(error);
       }
@@ -85,8 +64,6 @@ const Card = () => {
             <p className="price">{product.price}</p>
           </section>
 
-
-          <section className="card-footer" onClick={() => addToCart(product)}>
           <section
             className="card-footer"
             onClick={() => addCartHandler(product)}
@@ -101,7 +78,6 @@ const Card = () => {
           </section>
           <section
             className="card-footer"
-            onClick={() => removeFromWishlist(product)}
             onClick={() => deleteWishlistHandler(product._id)}
           >
             <div className="icon">

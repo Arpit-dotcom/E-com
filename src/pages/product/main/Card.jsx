@@ -1,9 +1,9 @@
 import { useAuth, useCart, useWishlist } from "contexts";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
 
 export const Card = ({ brand, image, price, title, rating, _id }) => {
   const { isLoggedIn, token } = useAuth();
@@ -21,18 +21,6 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
       navigate("/login");
     } else {
       if (!inWishlist) {
-        wishlistDispatch({
-          type: "ADD_TO_WISHLIST",
-          payload: { brand, image, price, title, rating, _id },
-        });
-        toast.success("Item add to wishlist!");
-      } 
-      else {
-        wishlistDispatch({
-          type: "REMOVE_FROM_WISHLIST",
-          payload: { brand, image, price, title, rating, _id },
-        });
-        toast.error("Item removed from wishlist!");
         try {
           const response = await axios.post(
             "/api/user/wishlist",
@@ -47,6 +35,7 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
             type: "ADD_TO_WISHLIST",
             payload: response.data.wishlist,
           });
+          toast.success("Item add to wishlist!");
         } catch (error) {
           alert(error);
         }
@@ -64,6 +53,7 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
             type: "REMOVE_FROM_WISHLIST",
             payload: response.data.wishlist,
           });
+          toast.error("Item removed from wishlist!");
         } catch (error) {
           alert(error);
         }
@@ -90,11 +80,11 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
             type: "ADD_TO_CART",
             payload: response.data.cart,
           });
+          toast.success("Item add to cart!");
         } catch (error) {
           alert(error);
         }
       }
-      toast.success("Item add to cart!");
       setToggleButton(false);
     }
   };

@@ -1,9 +1,7 @@
-
-import { useCart, useWishlist } from "contexts";
+import { useCart, useWishlist, useAuth } from "contexts";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import { useAuth, useCart, useWishlist } from "contexts";
 import { getWishlist } from "utils";
 
 export const Card = () => {
@@ -28,6 +26,7 @@ export const Card = () => {
           type: "ADD_TO_WISHLIST",
           payload: response.data.wishlist,
         });
+        toast.success("Item add to wishlist!");
       } catch (error) {
         alert(error);
       }
@@ -45,6 +44,7 @@ export const Card = () => {
         type: "REMOVE_FROM_CART",
         payload: response.data.cart,
       });
+      toast.error("Item removed from cart!");
     } catch (error) {
       alert(error);
     }
@@ -69,33 +69,12 @@ export const Card = () => {
         type: "UPDATE_QUANTITY",
         payload: response.data.cart,
       });
+      updateType === "increment"
+        ? toast.success("Item quantity increased in cart!")
+        : toast.error("Item quantity decreased in cart!");
     } catch (error) {
       alert(error);
     }
-  };
-
-  const addToWishlist = (product) => {
-    wishlistDispatch({
-      type: "ADD_TO_WISHLIST",
-      payload: product,
-    });
-    toast.success("Item add to wishlist!");
-  };
-
-  const increaseHandler = (product) => {
-    cartDispatch({
-      type: "INCREASE_QUANTITY",
-      payload: product,
-    });
-    toast.success("Item quantity increased!");
-  };
-
-  const decreaseHandler = (product) => {
-    cartDispatch({
-      type: "DECREASE_QUANTITY",
-      payload: product,
-    });
-    toast.error("Item quantity decreased!");
   };
 
   return (
@@ -113,7 +92,6 @@ export const Card = () => {
                 <button
                   disabled={product.qty === 1}
                   className="icon-button"
-                  onClick={() => decreaseHandler(product)}
                   onClick={() => updateCart("decrement", product._id)}
                 >
                   -
@@ -121,7 +99,6 @@ export const Card = () => {
                 <div className="icon-quantity">{product.qty}</div>
                 <button
                   className="icon-button"
-                  onClick={() => increaseHandler(product)}
                   onClick={() => updateCart("increment", product._id)}
                 >
                   +
@@ -130,7 +107,6 @@ export const Card = () => {
 
               <section
                 className="card-footer"
-                onClick={() => addToWishlist(product)}
                 onClick={() => addWishlistHandler(product)}
               >
                 <div className="margin-top-0_5 icon">
