@@ -1,6 +1,4 @@
 import {
-  addToCart,
-  removeFromCart,
   increaseQuantity,
   decreaseQuantity,
 } from "utils";
@@ -10,26 +8,17 @@ const cartReducer = (cartState, cartAction) => {
     case "ADD_TO_CART":
       return {
         ...cartState,
-        cart: addToCart(cartState.cart, cartAction.payload),
-        totalItemsPrice: cartState.totalItemsPrice + cartAction.payload.price,
+        cart: cartAction.payload,
       };
     case "REMOVE_FROM_CART":
       return {
         ...cartState,
-        cart: removeFromCart(cartState.cart, cartAction.payload),
-        totalItemsPrice: cartState.totalItemsPrice - cartAction.payload.price,
+        cart: cartAction.payload,
       };
-    case "INCREASE_QUANTITY":
+    case "UPDATE_QUANTITY":
       return {
         ...cartState,
-        cart: increaseQuantity(cartState.cart, cartAction.payload),
-        totalItemsPrice: cartState.totalItemsPrice + cartAction.payload.price,
-      };
-    case "DECREASE_QUANTITY":
-      return {
-        ...cartState,
-        cart: decreaseQuantity(cartState.cart, cartAction.payload),
-        totalItemsPrice: cartState.totalItemsPrice - cartAction.payload.price,
+        cart: cartAction.payload,
       };
     default:
       return cartState;
