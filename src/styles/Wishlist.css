@@ -18,6 +18,11 @@
     justify-content: flex-start;
 }
 
+.wishlistContainer .go-to-cart{
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
 .wishlistContainer .card{
     padding: 0;
     margin: 1rem;

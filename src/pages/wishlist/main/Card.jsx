@@ -1,10 +1,13 @@
 import axios from "axios";
 import { useAuth, useCart, useWishlist } from "contexts";
+import { useState } from "react";
+import { getCart } from "utils";
 
 const Card = () => {
   const { wishlistState, wishlistDispatch } = useWishlist();
+  const [toggleButton, setToggleButton] = useState(true);
   const { token } = useAuth();
-  const { cartDispatch } = useCart();
+  const { cartState, cartDispatch } = useCart();
 
   const deleteWishlistHandler = async (productId) => {
     try {
@@ -22,7 +25,28 @@ const Card = () => {
     }
   };
 
-  // const cartHandler = () => {}
+  const addCartHandler = async (product) => {
+    const inCart = getCart(cartState.cart, product._id);
+    if (!inCart) {
+      try {
+        const response = await axios.post(
+          "/api/user/cart",
+          { product },
+          {
+            headers: {
+              authorization: token,
+            },
+          }
+        );
+        cartDispatch({
+          type: "ADD_TO_CART",
+          payload: response.data.cart,
+        });
+      } catch (error) {
+        alert(error);
+      }
+    }
+  };
 
   return (
     <main className="sub-container">
@@ -40,17 +64,14 @@ const Card = () => {
 
           <section
             className="card-footer"
-            onClick={() =>
-              cartDispatch({
-                type: "ADD_TO_CART",
-                payload: product,
-              })
-            }
+            onClick={() => addCartHandler(product)}
           >
             <div className="icon">
-              <a className="favourite" href="#">
-                <i className="fas fa-shopping-cart"></i>Add to Cart
-              </a>
+              <div className="favourite">
+                <div className="cursor-pointer">
+                  <i className="fas fa-shopping-cart"></i>Add to Cart
+                </div>
+              </div>
             </div>
           </section>
           <section

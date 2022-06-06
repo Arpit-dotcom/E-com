@@ -2,10 +2,8 @@ import { useCart } from "contexts/CartContext";
 import { Card } from "./Card";
 
 const Main = () => {
-  const { cartState } = useCart();
-  const { cart, totalItemsPrice } = cartState;
-  const discount = totalItemsPrice * 0.4;
-  const totalPrice = totalItemsPrice + 40 - totalItemsPrice * 0.4;
+  const { cartState, discount, totalItemsPrice, totalPrice } = useCart();
+  const { cart } = cartState;
 
   return (
     <section className="margin-0 cartContainer">

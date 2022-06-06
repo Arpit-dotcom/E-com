@@ -57,15 +57,28 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
     }
   };
 
-  const clickHandler = () => {
+  const addCartHandler = async () => {
     if (!isLoggedIn) {
       navigate("/login");
     } else {
       if (toggleButton === true) {
-        cartDispatch({
-          type: "ADD_TO_CART",
-          payload: { brand, image, price, title, rating, _id },
-        });
+        try {
+          const response = await axios.post(
+            "/api/user/cart",
+            { product },
+            {
+              headers: {
+                authorization: token,
+              },
+            }
+          );
+          cartDispatch({
+            type: "ADD_TO_CART",
+            payload: response.data.cart,
+          });
+        } catch (error) {
+          alert(error);
+        }
       }
       setToggleButton(false);
     }
@@ -91,7 +104,7 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
           <strong>₹{price}</strong>
         </small>
       </div>
-      <section className="card-footer" onClick={clickHandler}>
+      <section className="card-footer" onClick={addCartHandler}>
         <div className="icon">
           <span className="favourite">
             {toggleButton ? (

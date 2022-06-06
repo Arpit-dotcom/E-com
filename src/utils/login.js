@@ -17,7 +17,6 @@ export const useLogin = () => {
         email: _email,
         password: _password,
       });
-      // localStorage.setItem("token", );
       setToken(response.data.encodedToken);
       setIsLoggedIn(true);
       navigate(location.state?.from?.pathname || "/product", { replace: true });
