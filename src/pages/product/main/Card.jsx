@@ -2,13 +2,15 @@ import { useAuth, useCart, useWishlist } from "contexts";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { getCart } from "utils";
 
 export const Card = ({ brand, image, price, title, rating, _id }) => {
   const { isLoggedIn, token } = useAuth();
   const navigate = useNavigate();
-  const [toggleButton, setToggleButton] = useState(true);
   const { wishlistState, wishlistDispatch } = useWishlist();
-  const { cartDispatch } = useCart();
+  const { cartState, cartDispatch } = useCart();
   const product = { brand, image, price, title, rating, _id };
 
   const inWishlist = wishlistState.wishlist.find((item) => item._id === _id);
@@ -33,6 +35,7 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
             type: "ADD_TO_WISHLIST",
             payload: response.data.wishlist,
           });
+          toast.success("Item add to wishlist!");
         } catch (error) {
           alert(error);
         }
@@ -50,6 +53,7 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
             type: "REMOVE_FROM_WISHLIST",
             payload: response.data.wishlist,
           });
+          toast.error("Item removed from wishlist!");
         } catch (error) {
           alert(error);
         }
@@ -58,10 +62,11 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
   };
 
   const addCartHandler = async () => {
+    const inCart = getCart(cartState.cart, product._id);
     if (!isLoggedIn) {
       navigate("/login");
     } else {
-      if (toggleButton === true) {
+      if (!inCart) {
         try {
           const response = await axios.post(
             "/api/user/cart",
@@ -76,11 +81,11 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
             type: "ADD_TO_CART",
             payload: response.data.cart,
           });
+          toast.success("Item add to cart!");
         } catch (error) {
           alert(error);
         }
       }
-      setToggleButton(false);
     }
   };
 
@@ -106,19 +111,10 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
       </div>
       <section className="card-footer" onClick={addCartHandler}>
         <div className="icon">
-          <span className="favourite">
-            {toggleButton ? (
-              <div className="cursor-pointer">
-                <i className="fas fa-shopping-cart"></i> Add to cart
-              </div>
-            ) : (
-              <Link className="cursor-pointer go-to-cart" to="/cart">
-                Go to cart
-              </Link>
-            )}
-          </span>
+          <div className="cursor-pointer"> Add to cart</div>
         </div>
       </section>
+      <ToastContainer />
     </section>
   );
 };

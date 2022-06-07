@@ -1,5 +1,7 @@
+import { useCart, useWishlist, useAuth } from "contexts";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import { useAuth, useCart, useWishlist } from "contexts";
 import { getWishlist } from "utils";
 
 export const Card = () => {
@@ -24,6 +26,7 @@ export const Card = () => {
           type: "ADD_TO_WISHLIST",
           payload: response.data.wishlist,
         });
+        toast.success("Item add to wishlist!");
       } catch (error) {
         alert(error);
       }
@@ -41,6 +44,7 @@ export const Card = () => {
         type: "REMOVE_FROM_CART",
         payload: response.data.cart,
       });
+      toast.error("Item removed from cart!");
     } catch (error) {
       alert(error);
     }
@@ -65,6 +69,9 @@ export const Card = () => {
         type: "UPDATE_QUANTITY",
         payload: response.data.cart,
       });
+      updateType === "increment"
+        ? toast.success("Item quantity increased in cart!")
+        : toast.error("Item quantity decreased in cart!");
     } catch (error) {
       alert(error);
     }
@@ -80,8 +87,9 @@ export const Card = () => {
                 <strong>{product.brand}</strong>
               </h2>
               <h3 className="brand">{product.title}</h3>
-              <p className="price">{product.price}</p>
-              <section className="card-footer">
+              <p className="price">₹ {product.price}</p>
+              <section className="card-quantity">
+                <span>Quantity : </span>
                 <button
                   disabled={product.qty === 1}
                   className="icon-button"
@@ -89,7 +97,7 @@ export const Card = () => {
                 >
                   -
                 </button>
-                <div className="icon-quantity">{product.qty}</div>
+                <span className="icon-quantity">{product.qty}</span>
                 <button
                   className="icon-button"
                   onClick={() => updateCart("increment", product._id)}
@@ -98,31 +106,26 @@ export const Card = () => {
                 </button>
               </section>
 
-              <section
-                className="card-footer"
-                onClick={() => addWishlistHandler(product)}
-              >
-                <div className="margin-top-0_5 icon">
-                  <a className="favourite" href="#">
-                    <i className="fas fa-heart"></i> Add to wishlist
-                  </a>
-                </div>
-              </section>
-              <section
-                className="card-footer"
-                onClick={() => removeCartHandler(product._id)}
-              >
-                <div className="margin-top-0_5 icon">
-                  <a className="favourite" href="#">
-                    <i className="fas fa-shopping-cart"></i> Remove from cart
-                  </a>
-                </div>
+              <section className="card-btn">
+                <button
+                  className="wishlist-btn"
+                  onClick={() => addWishlistHandler(product)}
+                >
+                  <div className="margin-top-0_5 icon">Add to wishlist</div>
+                </button>
+                <button
+                  className="cart-btn"
+                  onClick={() => removeCartHandler(product._id)}
+                >
+                  <div className="margin-top-0_5 icon"> Remove from cart</div>
+                </button>
               </section>
             </section>
             <img className="img" src={product.image} alt="cartItems" />
           </div>
         </section>
       ))}
+      <ToastContainer />
     </main>
   );
 };
