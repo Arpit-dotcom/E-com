@@ -92,7 +92,7 @@ export const Card = () => {
                 <span>Quantity : </span>
                 <button
                   disabled={product.qty === 1}
-                  className="icon-button"
+                  className={`${product.qty ===1 ? "disable" : ""} icon-button`}
                   onClick={() => updateCart("decrement", product._id)}
                 >
                   -
