@@ -51,45 +51,44 @@ const Card = () => {
   };
 
   return (
-    <main className="sub-container">
-      {wishlistState.wishlist.map((product) => (
-        <section className="padding-0 card horizontal" key={product._id}>
-          <img className="img" src={product.image} alt="wishlist-products" />
+    <>
+      {wishlistState.wishlist.length && (
+        <h1 className="margin-top-1 margin-bottom-1 wishlist-header">
+          Wishlist ({wishlistState.wishlist.length})
+        </h1>
+      )}
+      <main className="sub-container">
+        {wishlistState.wishlist.map((product) => (
+          <section className="padding-0 card horizontal" key={product._id}>
+            <img className="img" src={product.image} alt="wishlist-products" />
 
-          <section className="header">
-            <h2 className="text">
-              <strong>{product.brand}</strong>
-            </h2>
-            <h3 className="brand">{product.title}</h3>
-            <p className="price">{product.price}</p>
-          </section>
+            <section className="header">
+              <h2 className="text">
+                <strong>{product.brand}</strong>
+              </h2>
+              <h3 className="brand">{product.title}</h3>
+              <p className="price"> ₹ {product.price}</p>
+            </section>
 
-          <section
-            className="card-footer"
-            onClick={() => addCartHandler(product)}
-          >
-            <div className="icon">
-              <div className="favourite">
-                <div className="cursor-pointer">
-                  <i className="fas fa-shopping-cart"></i>Add to Cart
-                </div>
+            <section
+              className="card-footer"
+              onClick={() => addCartHandler(product)}
+            >
+              <div className="icon">
+                <div className="cursor-pointer">Add to Cart</div>
               </div>
-            </div>
+            </section>
+            <section
+              className="card-footer"
+              onClick={() => deleteWishlistHandler(product._id)}
+            >
+              <div className="cursor-pointer secondary-icon">Remove from wishlist</div>
+            </section>
           </section>
-          <section
-            className="card-footer"
-            onClick={() => deleteWishlistHandler(product._id)}
-          >
-            <div className="icon">
-              <a className="favourite" href="#">
-                <i className="fas fa-heart"></i> Remove from wishlist
-              </a>
-            </div>
-          </section>
-        </section>
-      ))}
-      <ToastContainer />
-    </main>
+        ))}
+        <ToastContainer />
+      </main>
+    </>
   );
 };
 

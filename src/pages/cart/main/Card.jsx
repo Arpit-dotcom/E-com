@@ -87,8 +87,9 @@ export const Card = () => {
                 <strong>{product.brand}</strong>
               </h2>
               <h3 className="brand">{product.title}</h3>
-              <p className="price">{product.price}</p>
-              <section className="card-footer">
+              <p className="price">₹ {product.price}</p>
+              <section className="card-quantity">
+                <span>Quantity : </span>
                 <button
                   disabled={product.qty === 1}
                   className="icon-button"
@@ -96,7 +97,7 @@ export const Card = () => {
                 >
                   -
                 </button>
-                <div className="icon-quantity">{product.qty}</div>
+                <span className="icon-quantity">{product.qty}</span>
                 <button
                   className="icon-button"
                   onClick={() => updateCart("increment", product._id)}
@@ -105,25 +106,19 @@ export const Card = () => {
                 </button>
               </section>
 
-              <section
-                className="card-footer"
-                onClick={() => addWishlistHandler(product)}
-              >
-                <div className="margin-top-0_5 icon">
-                  <a className="favourite" href="#">
-                    <i className="fas fa-heart"></i> Add to wishlist
-                  </a>
-                </div>
-              </section>
-              <section
-                className="card-footer"
-                onClick={() => removeCartHandler(product._id)}
-              >
-                <div className="margin-top-0_5 icon">
-                  <a className="favourite" href="#">
-                    <i className="fas fa-shopping-cart"></i> Remove from cart
-                  </a>
-                </div>
+              <section className="card-btn">
+                <button
+                  className="wishlist-btn"
+                  onClick={() => addWishlistHandler(product)}
+                >
+                  <div className="margin-top-0_5 icon">Add to wishlist</div>
+                </button>
+                <button
+                  className="cart-btn"
+                  onClick={() => removeCartHandler(product._id)}
+                >
+                  <div className="margin-top-0_5 icon"> Remove from cart</div>
+                </button>
               </section>
             </section>
             <img className="img" src={product.image} alt="cartItems" />

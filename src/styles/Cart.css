@@ -1,111 +1,151 @@
+.cart-header{
+  text-align: center;
+}
+
 .cartContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 50%;
-    margin: auto;
-    min-height: 100vh;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  width: 50%;
+  margin: auto;
+  min-height: 100vh;
 }
 
-.cartContainer .sidebar{
-    width: 20rem;
+.cartContainer .sidebar {
+  width: 20rem;
 }
 
-.cartContainer .only-text{
-    width: 100%;
+.cartContainer .only-text {
+  width: 100%;
 }
 
-.cartContainer .cart-text{
-    display: flex;
-    justify-content: space-between;
+.cartContainer .cart-text {
+  display: flex;
+  justify-content: space-between;
 }
 
-.sub-container{
-    align-items: flex-start;
-    margin: 0;
+.sub-container {
+  align-items: flex-start;
+  margin: 0;
 }
 
-.cartContainer .sub-container{
-    justify-content: space-evenly;
-    align-self: flex-start;
-    flex-wrap: wrap;
-    width: auto;
+.cartContainer .sub-container {
+  justify-content: space-evenly;
+  align-self: flex-start;
+  flex-wrap: wrap;
+  width: auto;
 }
 
-.card{
-    max-width: none;
+.card {
+  max-width: none;
 }
 
-.cartContainer .card{
-    background-color: var(--white-section);
-    height: 20rem;
+.cartContainer .card {
+  background-color: var(--white-section);
+  height: 20rem;
 }
 
-.cartContainer .margin-top-0_5{
-    margin-top: .5rem;
-}
-
-.cartContainer .horizontal{
-    width: 25rem;
-    height: 12rem;
-}
-
-.cartContainer .horizontal .header{
-    width: 50%;
-}
-
-.cartContainer .horizontal .img{
-    object-fit: cover;
-    border-radius: 1rem 0 0 1rem;
-}
-
-.cartContainer .header .text{
-    padding: 0;
-    margin: 0;
-}
-
-.cartContainer .card-footer{
-    margin: .2rem 0;
-}
-
-.cartContainer .card-footer .btn{
-    width: 90%;
+.cartContainer .btn{
+    border-radius: 10px;
     background-color: var(--primary-color);
-    color: var(--secondary-color);
-    padding: 0.2rem;
-    border-radius: 0.5rem;
+    width: 90%;
+    color: var(--white-section);
+    padding: .2rem;
 }
 
-.cartContainer .icon{
-    width: 100%;
-    text-align: center;
-    border: 1px solid var(--primary-color);
-    padding: 0.2rem;
-    border-radius: 0.5rem;
-} 
-
-.cartContainer .icon .favourite{
-    color: var(--primary-color);
-    text-decoration: none;
+.cartContainer .horizontal {
+  width: 35rem;
+  height: 12rem;
 }
 
-.cartContainer .icon-quantity{
-    width: 60%;
-    text-align: center;
-    border: 1px solid var(--primary-color);
-    border-radius: 0.5rem;
-    font-size: 1rem;
+.cartContainer .horizontal .header {
+  width: 60%;
+  padding: 0 1rem;
 }
 
-.cartContainer .icon-button{
-    padding:0 0.5rem;
-    cursor: pointer;
+.cartContainer .horizontal .img {
+  width: 40%;
+  object-fit: cover;
+  border-radius: 1rem 0 0 1rem;
 }
 
-.cart-empty{
-    margin-top: 5rem;
+.cartContainer .header .text {
+  padding: 0;
+  margin: 0;
 }
 
-.cart-empty > h2, .cart-empty > p{
-    display: flex;
-    justify-content: center;
+.cartContainer .card-quantity {
+  margin-top: 1rem;
+  display: flex;
+}
+
+.cartContainer .card-quantity .btn {
+  width: 90%;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+}
+
+.cartContainer .card-btn {
+  gap: 1rem;
+  display: flex;
+  margin-top: 1rem;
+}
+
+.cartContainer .wishlist-btn,
+.cartContainer .cart-btn {
+  border: 1px solid var(--primary-color);
+  background-color: var(--white-section);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cartContainer .wishlist-btn{
+    background-color: var(--primary-color);
+}
+
+.cartContainer .wishlist-btn .icon {
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--white-section);
+}
+
+.cartContainer .cart-btn .icon{
+    color:  var(--primary-color);
+}
+
+.cartContainer .icon .favourite {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.cartContainer .icon-quantity {
+  padding: 0 1rem;
+  text-align: center;
+  margin: 0 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.cartContainer .icon-button {
+  padding: 0 0.5rem;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--white-section);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  margin: 0 0.5rem;
+}
+
+.cart-empty {
+  margin-top: 5rem;
+}
+
+.cart-empty > h2,
+.cart-empty > p {
+  display: flex;
+  justify-content: center;
 }
