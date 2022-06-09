@@ -1,61 +1,107 @@
-import { useCart, useWishlist } from "contexts";
-import { Link } from "react-router-dom";
+import { useAuth, useCart, useWishlist } from "contexts";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { getCart } from "utils";
 
 export const Card = ({ brand, image, price, title, rating, _id }) => {
-  const [toggleButton, setToggleButton] = useState(true);
+  const { isLoggedIn, token } = useAuth();
+  const navigate = useNavigate();
   const { wishlistState, wishlistDispatch } = useWishlist();
-  const { cartDispatch } = useCart();
+  const { cartState, cartDispatch } = useCart();
+  const product = { brand, image, price, title, rating, _id };
+
   const inWishlist = wishlistState.wishlist.find((item) => item._id === _id);
   const wishlistButton = !inWishlist ? "favorite_border" : "favorite";
-  const wishlistButtonHandler = ({
-    brand,
-    image,
-    price,
-    title,
-    rating,
-    _id,
-  }) => {
-    if (!inWishlist) {
-      wishlistDispatch({
-        type: "ADD_TO_WISHLIST",
-        payload: { brand, image, price, title, rating, _id },
-      });
+
+  const wishlistButtonHandler = async (productId) => {
+    if (!isLoggedIn) {
+      navigate("/login");
     } else {
-      wishlistDispatch({
-        type: "REMOVE_FROM_WISHLIST",
-        payload: { brand, image, price, title, rating, _id },
-      });
+      if (!inWishlist) {
+        try {
+          const response = await axios.post(
+            "/api/user/wishlist",
+            { product },
+            {
+              headers: {
+                authorization: token,
+              },
+            }
+          );
+          wishlistDispatch({
+            type: "ADD_TO_WISHLIST",
+            payload: response.data.wishlist,
+          });
+          toast.success("Item add to wishlist!");
+        } catch (error) {
+          alert(error);
+        }
+      } else {
+        try {
+          const response = await axios.delete(
+            `/api/user/wishlist/${productId}`,
+            {
+              headers: {
+                authorization: token,
+              },
+            }
+          );
+          wishlistDispatch({
+            type: "REMOVE_FROM_WISHLIST",
+            payload: response.data.wishlist,
+          });
+          toast.error("Item removed from wishlist!");
+        } catch (error) {
+          alert(error);
+        }
+      }
     }
   };
-  const clickHandler = () => {
-    if(toggleButton === true){
-      cartDispatch({
-        type: "ADD_TO_CART",
-        payload: { brand, image, price, title, rating, _id },
-      })
+
+  const addCartHandler = async () => {
+    const inCart = getCart(cartState.cart, product._id);
+    if (!isLoggedIn) {
+      navigate("/login");
+    } else {
+      if (!inCart) {
+        try {
+          const response = await axios.post(
+            "/api/user/cart",
+            { product },
+            {
+              headers: {
+                authorization: token,
+              },
+            }
+          );
+          cartDispatch({
+            type: "ADD_TO_CART",
+            payload: response.data.cart,
+          });
+          toast.success("Item add to cart!");
+        } catch (error) {
+          alert(error);
+        }
+      }
     }
-    setToggleButton(false);
   };
+
   return (
     <section className="card badge-card">
       <button
         className="wishlist-button"
-        onClick={() =>
-          wishlistButtonHandler({
-            brand,
-            image,
-            price,
-            title,
-            rating,
-            _id,
-          })
-        }
+        onClick={() => wishlistButtonHandler(_id)}
       >
         <span className="material-icons-outlined">{wishlistButton}</span>
       </button>
       <img className="img" src={image} alt="card-image" />
-      <div className="rating">{rating}star</div>
+      <div className="rating">
+        {rating}
+        <i className="fas fa-star"></i>
+      </div>
       <div className="card-text">
         <h3>{brand}</h3>
         <p>{title}</p>
@@ -63,19 +109,12 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
           <strong>₹{price}</strong>
         </small>
       </div>
-      <section className="card-footer" onClick={clickHandler}>
+      <section className="card-footer" onClick={addCartHandler}>
         <div className="icon">
-          <a className="favourite" href="#">
-            {toggleButton ? (
-              <>
-                <i className="fas fa-shopping-cart"></i> Add to cart
-              </>
-            ) : (
-              <Link className="go-to-cart" to="/cart">Go to cart</Link>
-            )}
-          </a>
+          <div className="cursor-pointer"> Add to cart</div>
         </div>
       </section>
+      <ToastContainer />
     </section>
   );
 };

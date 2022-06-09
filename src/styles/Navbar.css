@@ -2,9 +2,12 @@
   background-color: var(--primary-color);
   padding: 1rem;
   align-items: center;
+  position: sticky;
+  top: 0px;
+  z-index: 10;
 }
 
-.simple-navigation .list-item{
+.simple-navigation .list-item {
   color: var(--secondary-color);
 }
 
@@ -15,6 +18,7 @@
   flex-wrap: nowrap;
   font-size: 1rem;
   width: auto;
+  margin: 0;
 }
 
 .logo {
@@ -23,57 +27,61 @@
   margin: 0 1rem;
 }
 
-.nav-list .text{
+.nav-list .text {
   color: var(--secondary-color);
+  margin-right: 2rem;
 }
 
-.nav-search{
+.nav-search {
   padding: 0.5rem;
   width: 30%;
 }
 
-.icons{
+.icons {
   position: relative;
   color: var(--secondary-color);
 }
 
-.icons > a{
+.icons > a {
   color: var(--secondary-color);
 }
 
-.material-icons{
+.material-icons {
   margin: 0 1.5rem;
 }
-.badge, .header-text, .num-items{
+.badge,
+.header-text,
+.num-items {
   position: absolute;
 }
-.profile .header-text{
+.profile .header-text {
   top: 1.5rem;
   left: 1rem;
 }
-.wishlist .header-text{
+.wishlist .header-text {
   top: 1.5rem;
   left: 5.3rem;
 }
-.cart .header-text{
+.cart .header-text {
   top: 1.5rem;
-   right: 1.3rem;
+  right: 1.3rem;
 }
 
-.wishlist .badge{
+.wishlist .badge {
   top: -1rem;
   right: 3.5rem;
 }
-.cart .badge, .cart .num-items{
+.cart .badge,
+.cart .num-items {
   top: -1rem;
   right: -1.3rem;
 }
-.wishlist .num-items{
+.wishlist .num-items {
   color: var(--primary-color);
   top: -1rem;
   right: 5.5rem;
 }
-.cart .num-items{
+.cart .num-items {
   color: var(--primary-color);
   top: -1rem;
   right: 0.7rem;

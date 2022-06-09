@@ -1,4 +1,5 @@
 import { useProduct } from "contexts/ProductContext";
+import { Link } from "react-router-dom";
 
 const categories = [
   "Headphones",
@@ -35,10 +36,17 @@ const Sidebar = () => {
     <aside className="drawer">
       <div className="filter">
         <h2>Filters</h2>
-        <button className="clear-filter" onClick={() => clickHandler("CLEAR")}>
-          <u>Clear Filters</u>
-        </button>
+        <Link
+          to="/product"
+          className="clear-filter"
+          onClick={() => clickHandler("CLEAR")}
+        >
+          Clear Filters
+        </Link>
       </div>
+
+      <div className="margin-top-1 margin-bottom-1 divider"></div>
+
       <h3 className="heading">CATEGORIES</h3>
       <ul className="sub-drawer stacked-list">
         {categories.map((category, index) => (
@@ -58,6 +66,9 @@ const Sidebar = () => {
           </li>
         ))}
       </ul>
+
+      <div className="margin-top-1 margin-bottom-1 divider"></div>
+
       <h3 className="heading">RATING</h3>
       <ul className="sub-drawer stacked-list">
         {ratings.map((item, index) => (
@@ -75,6 +86,9 @@ const Sidebar = () => {
           </li>
         ))}
       </ul>
+
+      <div className="margin-top-1 margin-bottom-1 divider"></div>
+
       <h3 className="heading">SORTBY</h3>
       <ul className="sub-drawer stacked-list">
         {sortBy.map((item, index) => (

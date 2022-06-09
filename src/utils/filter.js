@@ -1,8 +1,32 @@
-const getCategorisedProduct = (products, state) => {
-  const array = [...products];
+import { useProduct } from "contexts";
+import { useState } from "react";
+
+const useSearchBar = () => {
+  const { products } = useProduct();
+  const [searchInput, setSearchInput] = useState("");
+
+  const searchBarHandler = (event) => {
+    setSearchInput(event.target.value);
+    console.log(
+      products.filter((item) => {
+        if (searchInput === "") {
+          return item;
+        } else {
+          if (item.title.toLowerCase().includes(searchInput.toLowerCase())) {
+            return item;
+          }
+        }
+      })
+    );
+  };
+  return { searchBarHandler, searchInput };
+};
+
+const getCategorisedProduct = (searchInput, state) => {
+  const array = [...searchInput];
   const categories = state.categories;
   if (categories.length === 0) {
-    return products;
+    return searchInput;
   }
   return categories.reduce(
     (acc, category) => [
@@ -38,4 +62,9 @@ const getSortingProduts = (products, state) => {
   }
 };
 
-export { getCategorisedProduct, getRatingProducts, getSortingProduts };
+export {
+  getCategorisedProduct,
+  getRatingProducts,
+  getSortingProduts,
+  useSearchBar,
+};

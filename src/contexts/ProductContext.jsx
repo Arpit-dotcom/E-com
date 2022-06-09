@@ -43,7 +43,9 @@ const ProductProvider = ({ children }) => {
   }, []);
 
   return (
-    <ProductContext.Provider value={{ state, dispatch, filteredProducts }}>
+    <ProductContext.Provider
+      value={{ state, dispatch, filteredProducts, products }}
+    >
       {children}
     </ProductContext.Provider>
   );

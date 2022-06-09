@@ -1,3 +1,7 @@
+.wishlist-header{
+    text-align: center;
+}
+
 .wishlistContainer{
     min-height: 100vh;
 }
@@ -16,6 +20,11 @@
     width: 100%;
     flex-wrap: wrap;
     justify-content: flex-start;
+}
+
+.wishlistContainer .go-to-cart{
+    text-decoration: none;
+    color: var(--primary-color);
 }
 
 .wishlistContainer .card{
@@ -50,11 +59,22 @@
     border-radius: 0.5rem;
 }
 
-.wishlistContainer .icon{
+.wishlistContainer .card-footer .icon{
     width: 100%;
     text-align: center;
-    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--white-section);
     padding: 0.2rem;
+    border-radius: 0.5rem;
+}
+
+.wishlistContainer .secondary-icon{
+    border: 1px solid var(--primary-color);
+    width: 100%;
+    text-align: center;
+    color: var(--primary-color);
+    padding: 0.2rem;
+    margin: 0 5px;
     border-radius: 0.5rem;
 }
 
@@ -64,8 +84,10 @@
 }
 
 .wishlistContainer .wishlist-empty{
-    font-size: 3rem;
+    margin-top: 5rem;
+}
+
+.wishlistContainer .wishlist-empty > h2, .wishlist-empty > p{
     display: flex;
     justify-content: center;
-    margin-top: 15rem;
 }

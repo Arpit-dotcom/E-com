@@ -5,12 +5,12 @@ const wishlistReducer = (wishlistState, wishlistAction) => {
     case "ADD_TO_WISHLIST":
       return {
         ...wishlistState,
-        wishlist: addToWishlist(wishlistState.wishlist, wishlistAction.payload),
+        wishlist: wishlistAction.payload,
       };
     case "REMOVE_FROM_WISHLIST":
       return {
         ...wishlistState,
-        wishlist: removeFromWishlist(wishlistState.wishlist, wishlistAction.payload),
+        wishlist: wishlistAction.payload,
       };
     default:
       return wishlistState;
