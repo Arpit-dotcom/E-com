@@ -5,8 +5,6 @@ import { Card } from "./Card";
 const Main = () => {
   const { filteredProducts } = useProduct();
 
-  console.log(filteredProducts);
-
   return (
     <>
       <section className="productContainer">
