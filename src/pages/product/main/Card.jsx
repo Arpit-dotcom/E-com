@@ -1,20 +1,18 @@
 import { useAuth, useCart, useWishlist } from "contexts";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { getCart } from "utils";
+import { getCart, getWishlist } from "utils";
 
 export const Card = ({ brand, image, price, title, rating, _id }) => {
   const { isLoggedIn, token } = useAuth();
   const navigate = useNavigate();
   const { wishlistState, wishlistDispatch } = useWishlist();
   const { cartState, cartDispatch } = useCart();
+  const inWishlist = getWishlist(wishlistState.wishlist, _id);
+  const inCart = getCart(cartState.cart, _id);
   const product = { brand, image, price, title, rating, _id };
-
-  const inWishlist = wishlistState.wishlist.find((item) => item._id === _id);
-  const wishlistButton = !inWishlist ? "favorite_border" : "favorite";
 
   const wishlistButtonHandler = async (productId) => {
     if (!isLoggedIn) {
@@ -62,7 +60,6 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
   };
 
   const addCartHandler = async () => {
-    const inCart = getCart(cartState.cart, product._id);
     if (!isLoggedIn) {
       navigate("/login");
     } else {
@@ -95,7 +92,9 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
         className="wishlist-button"
         onClick={() => wishlistButtonHandler(_id)}
       >
-        <span className="material-icons-outlined">{wishlistButton}</span>
+        <span className="material-icons-outlined">
+          {!inWishlist ? "favorite_border" : "favorite"}
+        </span>
       </button>
       <img className="img" src={image} alt="card-image" />
       <div className="rating">
@@ -110,8 +109,14 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
         </small>
       </div>
       <section className="card-footer" onClick={addCartHandler}>
-        <div className="icon">
-          <div className="cursor-pointer"> Add to cart</div>
+        <div className={`icon ${inCart ? "active" : "inactive"}`}>
+          {!inCart ? (
+            <div className="cursor-pointer">Add to cart</div>
+          ) : (
+            <Link to="/cart" className="cursor-pointer go-to-cart">
+              Go to cart
+            </Link>
+          )}
         </div>
       </section>
       <ToastContainer />

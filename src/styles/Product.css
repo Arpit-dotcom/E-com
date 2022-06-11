@@ -105,7 +105,6 @@
 .productContainer .card-footer .icon {
   width: 100%;
   text-align: center;
-  background-color: var(--primary-color);
   color: var(--white-section);
   padding: 0.2rem;
   border-radius: 0.5rem;
@@ -126,4 +125,13 @@
 .productContainer .go-to-cart {
   text-decoration: none;
   color: var(--primary-color);
+}
+
+.productContainer .active {
+  background-color: var(--white-section);
+  border: 1px solid var(--primary-color);
+}
+
+.productContainer .inactive {
+  background-color: var(--primary-color);
 }
