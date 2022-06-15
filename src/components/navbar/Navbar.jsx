@@ -17,7 +17,7 @@ const Navbar = () => {
         <span className="nav-list" to="/">
           <h1 className="text">Shopzila</h1>
           <header className="head">
-            <p>
+            <p className="header-links">
               <Link className="home" to="/">
                 Home
               </Link>
@@ -31,7 +31,7 @@ const Navbar = () => {
         {pathname === "/product" && (
           <input
             className="nav-search"
-            id="items-disabled"
+            // id="items-disabled"
             type="text"
             value={searchInput}
             placeholder="Search for product, brands and more"

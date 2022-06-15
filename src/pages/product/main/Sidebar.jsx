@@ -22,10 +22,10 @@ const ratings = [
 const sortBy = ["Price - High to Low", "Price - Low to High"];
 
 const Sidebar = () => {
-  const { dispatch, state } = useProduct();
+  const { productDispatch, productState } = useProduct();
 
   const clickHandler = (category, value) => {
-    dispatch({ type: category, payload: value });
+    productDispatch({ type: category, payload: value });
   };
 
   const isCategoryChecked = (categories, category) => {
@@ -54,11 +54,11 @@ const Sidebar = () => {
             <label>
               <input
                 style={{ cursor: "pointer" }}
-                onChange={() => clickHandler("categories", category)}
+                onChange={() => clickHandler("CATEGORIES", category)}
                 type="checkbox"
                 checked={
-                  state.categories.length &&
-                  isCategoryChecked(state.categories, category)
+                  productState.categories.length &&
+                  isCategoryChecked(productState.categories, category)
                 }
               />
               {category}
@@ -76,8 +76,8 @@ const Sidebar = () => {
             <label>
               <input
                 style={{ cursor: "pointer" }}
-                onChange={() => clickHandler("Rating", item)}
-                checked={state.rating && state["rating"] === item}
+                onChange={() => clickHandler("RATING", item)}
+                checked={productState.rating && productState["rating"] === item}
                 type="radio"
                 name="rating"
               />
@@ -96,8 +96,11 @@ const Sidebar = () => {
             <label>
               <input
                 style={{ cursor: "pointer" }}
-                onChange={() => clickHandler("Sort", item.slice(8))}
-                checked={state.sortBy && state["sortBy"] === item.slice(8)}
+                onChange={() => clickHandler("SORT", item.slice(8))}
+                checked={
+                  productState.sortBy &&
+                  productState["sortBy"] === item.slice(8)
+                }
                 type="radio"
                 name="sort"
               />

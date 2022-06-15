@@ -4,35 +4,33 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useProduct } from "contexts";
 
-
 const Product = () => {
+  const getQueriedCategoryProducts = async (category, dispatch) => {
+    if (category) {
+      if (category === "Shoes") {
+        dispatch({ type: "CATEGORIES", payload: "Shoes" });
+      }
 
-  const getQueriedCategoryProducts= async(category, dispatch) => {
-  if (category) {
-    if (category === "Shoes") {
-      dispatch({ type: "categories", payload: "Shoes" });
-    }
+      if (category === "Headphones") {
+        dispatch({ type: "CATEGORIES", payload: "Headphones" });
+      }
 
-    if (category === "Headphones") {
-      dispatch({ type: "categories", payload: "Headphones" });
-    }
+      if (category === "Bag") {
+        dispatch({ type: "CATEGORIES", payload: "Bag" });
+      }
+      if (category === "Lipstick") {
+        dispatch({ type: "CATEGORIES", payload: "Lipstick" });
+      }
 
-    if (category === "Bag") {
-      dispatch({ type: "categories", payload: "Bag" });
-    }
-    if (category === "Lipstick") {
-      dispatch({ type: "categories", payload: "Lipstick" });
-    }
+      if (category === "Watch") {
+        dispatch({ type: "CATEGORIES", payload: "Watch" });
+      }
 
-    if (category === "Watch") {
-      dispatch({ type: "categories", payload: "Watch" });
+      if (category === "Sunglasses") {
+        dispatch({ type: "CATEGORIES", payload: "Sunglasses" });
+      }
     }
-
-    if (category === "Sunglasses") {
-      dispatch({ type: "categories", payload: "Sunglasses" });
-    }
-  }
-}
+  };
   const { dispatch } = useProduct();
   const { category } = useParams();
   useEffect(() => {
@@ -40,8 +38,7 @@ const Product = () => {
     getQueriedCategoryProducts(category, dispatch);
   }, []);
 
-  return(
-    <Main />
-)}
+  return <Main />;
+};
 
-export {Product}
+export { Product };

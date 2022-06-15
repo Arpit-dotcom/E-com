@@ -6,7 +6,7 @@ import {
   useState,
 } from "react";
 import axios from "axios";
-import { reducer } from "reducer";
+import { productReducer } from "reducer";
 import {
   getCategorisedProduct,
   getRatingProducts,
@@ -22,15 +22,18 @@ const defaultState = {
 const ProductContext = createContext(defaultState);
 
 const ProductProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, defaultState);
+  const [productState, productDispatch] = useReducer(
+    productReducer,
+    defaultState
+  );
   const [products, setProducts] = useState([]);
 
-  const filteredProducts = ((state, [...products]) => {
-    const categoryProducts = getCategorisedProduct(products, state);
-    const ratingProducts = getRatingProducts(categoryProducts, state);
-    const sortedProducts = getSortingProduts(ratingProducts, state);
+  const filteredProducts = ((productState, [...products]) => {
+    const categoryProducts = getCategorisedProduct(products, productState);
+    const ratingProducts = getRatingProducts(categoryProducts, productState);
+    const sortedProducts = getSortingProduts(ratingProducts, productState);
     return sortedProducts;
-  })(state, products);
+  })(productState, products);
 
   useEffect(async () => {
     try {
@@ -44,7 +47,7 @@ const ProductProvider = ({ children }) => {
 
   return (
     <ProductContext.Provider
-      value={{ state, dispatch, filteredProducts, products }}
+      value={{ productState, productDispatch, filteredProducts, products }}
     >
       {children}
     </ProductContext.Provider>

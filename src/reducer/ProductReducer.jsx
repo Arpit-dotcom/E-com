@@ -6,22 +6,25 @@ const checkCategories = (categories, category) => {
   }
 };
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "categories":
+const productReducer = (productState, productAction) => {
+  switch (productAction.type) {
+    case "CATEGORIES":
       return {
-        ...state,
-        categories: checkCategories(state.categories, action.payload),
+        ...productState,
+        categories: checkCategories(
+          productState.categories,
+          productAction.payload
+        ),
       };
-    case "Rating":
+    case "RATING":
       return {
-        ...state,
-        rating: action.payload,
+        ...productState,
+        rating: productAction.payload,
       };
-    case "Sort":
+    case "SORT":
       return {
-        ...state,
-        sortBy: action.payload,
+        ...productState,
+        sortBy: productAction.payload,
       };
     case "CLEAR":
       return {
@@ -30,8 +33,8 @@ const reducer = (state, action) => {
         categories: [],
       };
     default:
-      return state;
+      return productState;
   }
 };
 
-export { reducer };
+export { productReducer };

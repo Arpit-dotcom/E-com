@@ -9,9 +9,9 @@ const Card = () => {
   const { token } = useAuth();
   const { cartState, cartDispatch } = useCart();
 
-  const deleteWishlistHandler = async (productId) => {
+  const deleteWishlistHandler = async (product) => {
     try {
-      const response = await axios.delete(`/api/user/wishlist/${productId}`, {
+      const response = await axios.delete(`/api/user/wishlist/${product._id}`, {
         headers: {
           authorization: token,
         },
@@ -20,7 +20,7 @@ const Card = () => {
         type: "REMOVE_FROM_WISHLIST",
         payload: response.data.wishlist,
       });
-      toast.error("Item removed from wishlist!");
+      toast.error(`${product.title} removed from wishlist!`);
     } catch (error) {
       alert(error);
     }
@@ -43,7 +43,7 @@ const Card = () => {
           type: "ADD_TO_CART",
           payload: response.data.cart,
         });
-        toast.success("Item add to cart!");
+        toast.success(`${product.title} added to cart!`);
       } catch (error) {
         alert(error);
       }
@@ -80,9 +80,11 @@ const Card = () => {
             </section>
             <section
               className="card-footer"
-              onClick={() => deleteWishlistHandler(product._id)}
+              onClick={() => deleteWishlistHandler(product)}
             >
-              <div className="cursor-pointer secondary-icon">Remove from wishlist</div>
+              <div className="cursor-pointer secondary-icon">
+                Remove from wishlist
+              </div>
             </section>
           </section>
         ))}

@@ -26,16 +26,16 @@ export const Card = () => {
           type: "ADD_TO_WISHLIST",
           payload: response.data.wishlist,
         });
-        toast.success("Item add to wishlist!");
+        toast.success(`${product.title} added to wishlist!`);
       } catch (error) {
         alert(error);
       }
     }
   };
 
-  const removeCartHandler = async (productId) => {
+  const removeCartHandler = async (product) => {
     try {
-      const response = await axios.delete(`/api/user/cart/${productId}`, {
+      const response = await axios.delete(`/api/user/cart/${product._id}`, {
         headers: {
           authorization: token,
         },
@@ -44,16 +44,16 @@ export const Card = () => {
         type: "REMOVE_FROM_CART",
         payload: response.data.cart,
       });
-      toast.error("Item removed from cart!");
+      toast.error(`${product.title} removed from cart!`);
     } catch (error) {
       alert(error);
     }
   };
 
-  const updateCart = async (updateType, productId) => {
+  const updateCart = async (updateType, product) => {
     try {
       const response = await axios.post(
-        `/api/user/cart/${productId}`,
+        `/api/user/cart/${product._id}`,
         {
           action: {
             type: updateType,
@@ -70,8 +70,8 @@ export const Card = () => {
         payload: response.data.cart,
       });
       updateType === "increment"
-        ? toast.success("Item quantity increased in cart!")
-        : toast.error("Item quantity decreased in cart!");
+        ? toast.success(`${product.title} quantity increased in cart!`)
+        : toast.error(`${product.title} quantity decreased in cart!`);
     } catch (error) {
       alert(error);
     }
@@ -92,15 +92,17 @@ export const Card = () => {
                 <span>Quantity : </span>
                 <button
                   disabled={product.qty === 1}
-                  className={`${product.qty ===1 ? "disable" : ""} icon-button`}
-                  onClick={() => updateCart("decrement", product._id)}
+                  className={`${
+                    product.qty === 1 ? "disable" : ""
+                  } icon-button`}
+                  onClick={() => updateCart("decrement", product)}
                 >
                   -
                 </button>
                 <span className="icon-quantity">{product.qty}</span>
                 <button
                   className="icon-button"
-                  onClick={() => updateCart("increment", product._id)}
+                  onClick={() => updateCart("increment", product)}
                 >
                   +
                 </button>
@@ -115,7 +117,7 @@ export const Card = () => {
                 </button>
                 <button
                   className="cart-btn"
-                  onClick={() => removeCartHandler(product._id)}
+                  onClick={() => removeCartHandler(product)}
                 >
                   <div className="margin-top-0_5 icon"> Remove from cart</div>
                 </button>

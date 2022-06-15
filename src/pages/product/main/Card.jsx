@@ -33,7 +33,7 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
             type: "ADD_TO_WISHLIST",
             payload: response.data.wishlist,
           });
-          toast.success("Item add to wishlist!");
+          toast.success(`${title} added to wishlist!`);
         } catch (error) {
           alert(error);
         }
@@ -51,7 +51,7 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
             type: "REMOVE_FROM_WISHLIST",
             payload: response.data.wishlist,
           });
-          toast.error("Item removed from wishlist!");
+          toast.error(`${title} removed from wishlist!`);
         } catch (error) {
           alert(error);
         }
@@ -78,7 +78,7 @@ export const Card = ({ brand, image, price, title, rating, _id }) => {
             type: "ADD_TO_CART",
             payload: response.data.cart,
           });
-          toast.success("Item add to cart!");
+          toast.success(`${title} added to cart!`);
         } catch (error) {
           alert(error);
         }

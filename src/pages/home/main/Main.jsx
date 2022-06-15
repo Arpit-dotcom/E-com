@@ -1,6 +1,15 @@
-import { Link } from "react-router-dom";
+import { useProduct } from "contexts";
+import { useNavigate } from "react-router-dom";
 
 const Main = ({ categories }) => {
+  const navigate = useNavigate();
+  const { productDispatch } = useProduct();
+
+  const getCategoryHandler = (category) => {
+    productDispatch({ type: "CATEGORIES", payload: category });
+    navigate("/product");
+  };
+
   return (
     <>
       <main className="container">
@@ -13,14 +22,18 @@ const Main = ({ categories }) => {
         </div>
         <h1 className="home-heading">Sort By Categories</h1>
         <section className="sub-container">
-          {categories.map((item,index) => (
-                <Link to={`/product/${item.category}`} key={index}>
-                  <div className="retina">
-                    <h1 className="banner">{item.category}</h1>
-                    <img className="img-size" src={item.src} alt="card-image" />
-                  </div>
-                </Link>
-            ))}
+          {categories.map((item, index) => (
+            <div
+              key={index}
+              onClick={() => getCategoryHandler(item.category)}
+              className="category-container"
+            >
+              <div className="retina">
+                <h1 className="banner">{item.category}</h1>
+                <img className="img-size" src={item.src} alt="card-image" />
+              </div>
+            </div>
+          ))}
         </section>
       </main>
     </>
