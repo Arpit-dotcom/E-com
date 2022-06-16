@@ -59,6 +59,10 @@
   color: var(--secondary-color);
 }
 
+.productContainer .drawer .small-device {
+  width: 100vw !important;
+}
+
 /* Media Queries */
 
 @media screen and (max-width: 1024px) {
@@ -71,10 +75,15 @@
   #items-disabled {
     display: inline;
   }
-  /* .productContainer .drawer {
-    bottom: 0;
-    width: 100vw !important;
-  } */
+  .productContainer .drawer {
+    display: none;
+  }
+  .productContainer {
+    grid-template-columns: 1fr !important;
+  }
+  .drawer-modal {
+    display: flex !important;
+  }
 }
 
 /* @media screen and (max-width: 480px) {
