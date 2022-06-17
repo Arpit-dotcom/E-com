@@ -1,9 +1,22 @@
 import { useCart } from "contexts/CartContext";
+import { useEffect, useState } from "react";
 import { Card } from "./Card";
 
 const Main = () => {
-  const { cartState, discount, totalItemsPrice, totalPrice } = useCart();
+  const [totalItemsPrice, setTotalItemsPrice] = useState(0);
+  const { cartState } = useCart();
   const { cart } = cartState;
+
+  useEffect(() => {
+    const totalItemsPrice = cartState.cart.reduce(
+      (acc, curr) => (acc += curr.price * curr.qty),
+      0
+    );
+    setTotalItemsPrice(totalItemsPrice);
+  }, [cartState]);
+
+  const discount = totalItemsPrice * 0.4;
+  const totalPrice = totalItemsPrice + 40 - totalItemsPrice * 0.4;
 
   return (
     <>
@@ -50,11 +63,8 @@ const Main = () => {
             </section>
 
             <section className="card-footer">
-              <div className="margin-0 padding-0 btn">
-                <button
-                  className="margin-0 padding-0 btn primary"
-                  style={{ cursor: "pointer" }}
-                >
+              <div className="margin-0 padding-0 disable btn">
+                <button className="margin-0 padding-0 btn primary">
                   Place Order
                 </button>
               </div>

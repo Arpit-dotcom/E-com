@@ -3,11 +3,9 @@
 }
 
 .cartContainer {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  width: 50%;
-  margin: auto;
-  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
 }
 
 .cartContainer .sidebar {
@@ -26,13 +24,14 @@
 .sub-container {
   align-items: flex-start;
   margin: 0;
+  width: auto;
+  flex: 0 1 auto;
 }
 
 .cartContainer .sub-container {
-  justify-content: space-evenly;
-  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  width: auto;
 }
 
 .cartContainer .disable {
@@ -57,13 +56,17 @@
 }
 
 .cartContainer .horizontal {
-  width: 35rem;
+  width: 28rem;
   height: 12rem;
 }
 
 .cartContainer .horizontal .header {
   width: 60%;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
+}
+
+.cartContainer .icon {
+  font-size: small;
 }
 
 .cartContainer .horizontal .img {
@@ -93,6 +96,7 @@
 .cartContainer .card-btn {
   gap: 1rem;
   display: flex;
+  flex-wrap: wrap;
   margin-top: 1rem;
 }
 

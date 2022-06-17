@@ -1,8 +1,4 @@
-import {
-  createContext,
-  useReducer,
-  useContext,
-} from "react";
+import { createContext, useReducer, useContext } from "react";
 import { cartReducer } from "reducer";
 
 const CartContext = createContext();
@@ -12,17 +8,8 @@ const CartProvider = ({ children }) => {
     cart: [],
   });
 
-  const totalItemsPrice = cartState.cart.reduce(
-    (acc, curr) => (acc += curr.price * curr.qty),
-    0
-  );
-  const discount = totalItemsPrice * 0.4;
-  const totalPrice = totalItemsPrice + 40 - totalItemsPrice * 0.4;
-
   return (
-    <CartContext.Provider
-      value={{ cartState, cartDispatch, discount, totalItemsPrice, totalPrice }}
-    >
+    <CartContext.Provider value={{ cartState, cartDispatch }}>
       {children}
     </CartContext.Provider>
   );
