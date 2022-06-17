@@ -9,24 +9,26 @@ export const DrawerModal = () => {
 
   return (
     <>
-      {showSort && <MobileSort />}
-      {showFilter && <MobileFilter />}
-      <section className="drawer-modal">
-        <button
-          className="drawer-modal-button"
-          onClick={() => setShowSort((prev) => !prev)}
-        >
-          <MdSort className="drawer-modal-icons" />
-          Sort
-        </button>
-        <button
-          className="drawer-modal-button"
-          onClick={() => setShowFilter((prev) => !prev)}
-        >
-          <MdOutlineFilterAlt className="drawer-modal-icons" />
-          Filter
-        </button>
-      </section>
+      {showSort && <MobileSort setShowSort={setShowSort} />}
+      {showFilter && <MobileFilter setShowFilter={setShowFilter} />}
+      {(!showFilter && !showSort) && (
+        <section className="drawer-modal">
+          <button
+            className="drawer-modal-button"
+            onClick={() => setShowSort((prev) => !prev)}
+          >
+            <MdSort className="drawer-modal-icons" />
+            Sort
+          </button>
+          <button
+            className="drawer-modal-button"
+            onClick={() => setShowFilter((prev) => !prev)}
+          >
+            <MdOutlineFilterAlt className="drawer-modal-icons" />
+            Filter
+          </button>
+        </section>
+      )}
     </>
   );
 };
