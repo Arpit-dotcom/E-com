@@ -12,6 +12,7 @@
 }
 
 .hamburger-icon {
+  cursor: pointer;
   color: var(--white-section);
   font-size: 1.5rem;
   margin-top: 0.5rem;
@@ -108,4 +109,46 @@
 
 .sub-container {
   display: flex;
+}
+
+.mobile-sidebar {
+  position: fixed;
+  left: 0;
+  width: 15rem;
+  z-index: 20;
+  height: 100vh;
+  box-shadow: 10px 0 5px var(--bg-color);
+}
+
+.mobile-sidebar .heading {
+  background-color: var(--primary-color);
+  color: var(--white-section);
+  text-align: left;
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.mobile-sidebar .material-icons {
+  margin: 0 0.5rem;
+}
+
+.mobile-sidebar .list{
+  background-color: var(--white-section);
+  height: 100%;
+}
+
+.mobile-sidebar .list-item {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-weight: 400;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin: 0.2rem 0;
+}
+
+.mobile-sidebar .close {
+  position: relative;
+  right: -3.4rem;
+  cursor: pointer;
 }

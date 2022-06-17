@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "styles/Navbar.css";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth, useWishlist, useCart } from "contexts";
 import { useSearchBar } from "utils";
 import { FaBars } from "react-icons/fa";
 import { AiOutlineSearch } from "react-icons/ai";
+import { MobileSidebar } from "components";
 
 const Navbar = () => {
   const { pathname } = useLocation();
@@ -12,12 +13,17 @@ const Navbar = () => {
   const { cartState } = useCart();
   const { isLoggedIn } = useAuth();
   const { searchBarHandler, searchInput } = useSearchBar();
+  const [sidebar, setSidebar] = useState(false);
 
   return (
     <>
+      {sidebar && <MobileSidebar setSidebar={setSidebar} />}
       <nav className="simple-navigation">
         <span className="nav-list" to="/">
-          <FaBars className="hamburger-icon" />
+          <FaBars
+            className="hamburger-icon"
+            onClick={() => setSidebar((prev) => !prev)}
+          />
           <h1 className="text">Shopzila</h1>
           <header className="head">
             <p className="header-links">

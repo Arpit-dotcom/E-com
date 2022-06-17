@@ -7,19 +7,12 @@
 }
 
 .wishlistContainer .sub-container{
-    display: flex;
-    justify-content: space-evenly;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
 .wishlistContainer .fa-shopping-cart{
     padding: 0 0.5rem;
-}
-
-.wishlistContainer .sub-container{
-    align-self: flex-start;
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: flex-start;
 }
 
 .wishlistContainer .go-to-cart{
@@ -29,7 +22,6 @@
 
 .wishlistContainer .card{
     padding: 0;
-    margin: 1rem;
     background-color: var(--white-section);
     height: 22rem;
 }

@@ -128,4 +128,24 @@
   .cartContainer {
     padding: 0 !important;
   }
+  .list-item {
+    margin: 0;
+  }
+  .cartContainer .horizontal {
+    width: 22rem !important;
+    height: 13rem !important;
+  }
+  .cartContainer .card-quantity {
+    margin: 0 !important;
+  }
+  .cartContainer .icon-button {
+    margin: 0 !important;
+  }
+  .cartContainer .cart-btn .icon {
+    padding: 0.4rem 0 !important;
+  }
+  .cartContainer .only-text {
+    width: 22rem !important;
+    margin: auto !important;
+  }
 }
