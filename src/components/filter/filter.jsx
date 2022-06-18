@@ -7,9 +7,11 @@ export const Filter = ({ categories, ratings }) => {
   const clickHandler = (category, value) => {
     productDispatch({ type: category, payload: value });
   };
+  
   const isCategoryChecked = (categories, category) => {
     return categories.includes(category);
   };
+
   return (
     <>
       <div className="filter">

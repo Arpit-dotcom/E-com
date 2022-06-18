@@ -37,7 +37,7 @@ const Navbar = () => {
           </header>
         </span>
 
-        {pathname === "/product" && (
+        {/* {pathname === "/product" && (
           <div className="search-bar">
             <AiOutlineSearch className="search-icon" />
             <input
@@ -48,7 +48,7 @@ const Navbar = () => {
               onChange={(event) => searchBarHandler(event)}
             />
           </div>
-        )}
+        )} */}
 
         <div className="nav-list">
           <div className="list-item icons">

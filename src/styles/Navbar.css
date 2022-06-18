@@ -113,11 +113,19 @@
 
 .mobile-sidebar {
   position: fixed;
+  top: 0;
   left: 0;
-  width: 15rem;
+  right: 0;
+  bottom: 0;
   z-index: 20;
+  width: 100vw;
   height: 100vh;
-  box-shadow: 10px 0 5px var(--bg-color);
+  background-color: var(--blur);
+}
+
+.mobile-sidebar-container{
+  width: 15rem;
+  height: 100%;
 }
 
 .mobile-sidebar .heading {

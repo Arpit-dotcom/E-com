@@ -5,7 +5,8 @@
   margin-bottom: 1rem;
   padding: 2rem;
   background-color: var(--secondary-color);
-  width: 27rem;
+  width: 20rem;
+  border: 1px solid var(--bg-color);
 }
 
 .signupContainer .signin {

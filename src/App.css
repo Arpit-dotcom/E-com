@@ -11,6 +11,7 @@
   --primary-color: #7f1d1d;
   --secondary-color: #f8fafc;
   --bg-color: #e2e8f0;
+  --blur: rgba(0, 0, 0, 0.27);
 }
 
 .margin-0 {

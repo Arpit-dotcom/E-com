@@ -5,11 +5,13 @@ import { AiOutlineClose } from "react-icons/ai";
 export const MobileFilter = ({ setShowFilter }) => {
   return (
     <section className="mobile-filter">
-      <AiOutlineClose
-        className="close"
-        onClick={() => setShowFilter((prev) => !prev)}
-      />
-      <Filter categories={categories} ratings={ratings} />
+      <div className="mobile-filter-container">
+        <AiOutlineClose
+          className="close"
+          onClick={() => setShowFilter((prev) => !prev)}
+        />
+        <Filter categories={categories} ratings={ratings} />
+      </div>
     </section>
   );
 };

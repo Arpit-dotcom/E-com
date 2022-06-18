@@ -7,7 +7,8 @@
   margin-bottom: 2rem;
   padding: 2rem;
   background-color: var(--secondary-color);
-  width: 25rem;
+  width: 20rem;
+  border: 1px solid var(--bg-color);
 }
 
 .loginContainer .inp {

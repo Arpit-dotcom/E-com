@@ -143,23 +143,32 @@
 
 .mobile-sort,
 .mobile-filter {
-  background-color: var(--white-section);
-  z-index: 5;
+  background-color: var(--blur);
+  z-index: 20;
+  height: 100vh;
   width: 100vw;
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   bottom: 0;
+}
+
+.mobile-sort-container,
+.mobile-filter-container {
+  width: 100%;
+  background-color: var(--white-section);
+  position: fixed;
+  bottom: 0;
+  padding: 1rem;
 }
 
 .mobile-filter .close,
 .mobile-sort .close {
   position: absolute;
-  top: 1.5rem;
+  top: 2.5rem;
   right: 2rem;
   cursor: pointer;
-}
-
-.mobile-filter .filter {
-  margin: 1rem;
 }
 
 .mobile-filter .filter > h2,
