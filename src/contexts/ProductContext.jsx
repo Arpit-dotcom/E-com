@@ -10,6 +10,7 @@ import { productReducer } from "reducer";
 import {
   getCategorisedProduct,
   getRatingProducts,
+  getSearchProducts,
   getSortingProduts,
 } from "utils";
 
@@ -17,6 +18,7 @@ const defaultState = {
   rating: "",
   sortBy: "",
   categories: [],
+  search: "",
 };
 
 const ProductContext = createContext(defaultState);
@@ -32,7 +34,11 @@ const ProductProvider = ({ children }) => {
     const categoryProducts = getCategorisedProduct(products, productState);
     const ratingProducts = getRatingProducts(categoryProducts, productState);
     const sortedProducts = getSortingProduts(ratingProducts, productState);
-    return sortedProducts;
+    const searchProducts = getSearchProducts(
+      sortedProducts,
+      productState.search
+    );
+    return searchProducts;
   })(productState, products);
 
   useEffect(async () => {

@@ -3,7 +3,7 @@ export {
   getCategorisedProduct,
   getRatingProducts,
   getSortingProduts,
-  useSearchBar,
+  getSearchProducts,
 } from "./filter";
 export { getWishlist } from "./wishlist";
 export { useLogin } from "./login";

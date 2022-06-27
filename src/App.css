@@ -72,7 +72,6 @@
   }
   .cartContainer .sidebar {
     width: 28rem !important;
-    align-self: center !important;
   }
   .cartContainer .only-text {
     margin: 0;
@@ -122,6 +121,13 @@
     left: 0;
     width: 100vw !important;
     margin: 0 !important;
+  }
+  .productContainer .main-content {
+    margin-top: 2rem !important;
+    margin-bottom: 5rem !important;
+  }
+  .cartContainer .sidebar {
+    margin: 0.5rem !important;
   }
 }
 

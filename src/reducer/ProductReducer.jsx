@@ -31,7 +31,10 @@ const productReducer = (productState, productAction) => {
         rating: "",
         sortBy: "",
         categories: [],
+        search: "",
       };
+    case "SET_SEARCH":
+      return { ...productState, search: productAction.payload };
     default:
       return productState;
   }

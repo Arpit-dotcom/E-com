@@ -10,8 +10,7 @@ const Main = () => {
         <div className="wishlist-empty">
           <h2>Wishlist is empty!!!!</h2>
           <p>
-            Explore more products,{" "}
-            <Link to="/product"> Continue shopping </Link>
+            Explore more products, <Link to="/product">Continue shopping </Link>
           </p>
         </div>
       ) : (

@@ -32,6 +32,8 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  justify-self: flex-start;
+  align-self: flex-start;
 }
 
 .cartContainer .disable {

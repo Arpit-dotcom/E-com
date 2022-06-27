@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "styles/Navbar.css";
 import { Link, useLocation } from "react-router-dom";
-import { useAuth, useWishlist, useCart } from "contexts";
-import { useSearchBar } from "utils";
+import { useAuth, useWishlist, useCart, useProduct } from "contexts";
 import { FaBars } from "react-icons/fa";
 import { AiOutlineSearch } from "react-icons/ai";
 import { MobileSidebar } from "components";
@@ -12,8 +11,12 @@ const Navbar = () => {
   const { wishlistState } = useWishlist();
   const { cartState } = useCart();
   const { isLoggedIn } = useAuth();
-  const { searchBarHandler, searchInput } = useSearchBar();
+  const { productState, productDispatch } = useProduct();
   const [sidebar, setSidebar] = useState(false);
+
+  const searchBarHandler = (event) => {
+    productDispatch({ type: "SET_SEARCH", payload: event.target.value });
+  };
 
   return (
     <>
@@ -37,18 +40,18 @@ const Navbar = () => {
           </header>
         </span>
 
-        {/* {pathname === "/product" && (
+        {pathname === "/product" && (
           <div className="search-bar">
             <AiOutlineSearch className="search-icon" />
             <input
               className="nav-search"
               type="text"
-              value={searchInput}
+              value={productState.search}
               placeholder="Search"
               onChange={(event) => searchBarHandler(event)}
             />
           </div>
-        )} */}
+        )}
 
         <div className="nav-list">
           <div className="list-item icons">
