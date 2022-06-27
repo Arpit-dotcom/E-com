@@ -70,8 +70,8 @@ export const Card = () => {
         payload: response.data.cart,
       });
       updateType === "increment"
-        ? toast.success(`${product.title} quantity increased in cart!`)
-        : toast.error(`${product.title} quantity decreased in cart!`);
+        ? toast.success(`${product.title} quantity increases!`)
+        : toast.error(`${product.title} quantity decreases!`);
     } catch (error) {
       alert(error);
     }
