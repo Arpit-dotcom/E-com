@@ -6,3 +6,4 @@ export { MobileSort } from "./sort/mobileSort";
 export { Filter } from "./filter/filter";
 export { MobileFilter } from "./filter/mobileFilter";
 export { MobileSidebar } from "./mobileSidebar/mobileSidebar";
+export { AddressModal } from "./address/AddressModal";

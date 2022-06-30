@@ -55,11 +55,20 @@
   width: 90%;
   color: var(--white-section);
   padding: 0.2rem;
+  cursor: pointer;
+}
+
+.cartContainer .btn:hover{
+  opacity: 50%;
 }
 
 .cartContainer .horizontal {
   width: 28rem;
   height: 12rem;
+}
+
+.cartContainer .btn .primary:hover {
+  color: var(--white-section);
 }
 
 .cartContainer .horizontal .header {
