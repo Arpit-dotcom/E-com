@@ -1,7 +1,4 @@
-import {
-  increaseQuantity,
-  decreaseQuantity,
-} from "utils";
+import { increaseQuantity, decreaseQuantity } from "utils";
 
 const cartReducer = (cartState, cartAction) => {
   switch (cartAction.type) {
@@ -20,6 +17,8 @@ const cartReducer = (cartState, cartAction) => {
         ...cartState,
         cart: cartAction.payload,
       };
+    case "CLEAR_CART":
+      return { ...cartState, cart: [] };
     default:
       return cartState;
   }

@@ -1,5 +1,6 @@
 import { useCart } from "contexts/CartContext";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Card } from "./Card";
 
 const Main = () => {
@@ -63,11 +64,11 @@ const Main = () => {
             </section>
 
             <section className="card-footer">
-              <div className="margin-0 padding-0 disable btn">
+              <Link to="/address" className="margin-0 padding-0 btn">
                 <button className="margin-0 padding-0 btn primary">
                   Place Order
                 </button>
-              </div>
+              </Link>
             </section>
           </section>
         </main>

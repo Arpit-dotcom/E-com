@@ -5,3 +5,5 @@ export { Cart } from "./cart/Cart";
 export { Login } from "./authentication/Login";
 export { Logout } from "./authentication/Logout";
 export { Signup } from "./authentication/Signup";
+export { Address } from "./address/Address";
+export { Order } from "./order/Order";
