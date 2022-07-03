@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useLogout } from "utils";
 
 const Logout = () => {
-
   const { logOutHandler, notLogOutHandler } = useLogout();
 
   useEffect(() => {
@@ -25,7 +24,7 @@ const Logout = () => {
           className="cursor-pointer primary"
           onClick={() => notLogOutHandler()}
         >
-          Not now
+          Just kidding
         </button>
 
         <button
