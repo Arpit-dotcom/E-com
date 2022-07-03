@@ -69,9 +69,6 @@ export const Card = () => {
         type: "UPDATE_QUANTITY",
         payload: response.data.cart,
       });
-      updateType === "increment"
-        ? toast.success(`${product.title} quantity increases!`)
-        : toast.error(`${product.title} quantity decreases!`);
     } catch (error) {
       alert(error);
     }

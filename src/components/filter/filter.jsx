@@ -7,7 +7,7 @@ export const Filter = ({ categories, ratings }) => {
   const clickHandler = (category, value) => {
     productDispatch({ type: category, payload: value });
   };
-  
+
   const isCategoryChecked = (categories, category) => {
     return categories.includes(category);
   };
@@ -16,13 +16,12 @@ export const Filter = ({ categories, ratings }) => {
     <>
       <div className="filter">
         <h2>Filters</h2>
-        <Link
-          to="/product"
+        <button
           className="clear-filter"
-          onClick={() => productDispatch({ type: category })}
+          onClick={() => productDispatch({ type: "CLEAR" })}
         >
           Clear Filters
-        </Link>
+        </button>
       </div>
       <div className="margin-top-1 margin-bottom-1 divider"></div>
       <h3 className="heading">CATEGORIES</h3>

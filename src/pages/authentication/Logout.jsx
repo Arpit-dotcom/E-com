@@ -25,7 +25,7 @@ const Logout = () => {
           className="cursor-pointer primary"
           onClick={() => notLogOutHandler()}
         >
-          Just kidding
+          Not now
         </button>
 
         <button

@@ -12,6 +12,8 @@ const wishlistReducer = (wishlistState, wishlistAction) => {
         ...wishlistState,
         wishlist: wishlistAction.payload,
       };
+    case "CLEAR_WISHLIST":
+      return { ...wishlistState, wishlist: [] };
     default:
       return wishlistState;
   }

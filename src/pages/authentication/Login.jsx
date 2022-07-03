@@ -1,15 +1,23 @@
 import { Link } from "react-router-dom";
 import "styles/authentication/Login.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLogin } from "utils";
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
 const Login = () => {
-
   useEffect(() => {
     document.title = "Login | Shopzila";
   }, []);
 
-  const {loginHandler,dummyHandler,_email,_password,setEmail,setPassword} = useLogin();
+  const {
+    loginHandler,
+    dummyHandler,
+    _email,
+    _password,
+    setEmail,
+    setPassword,
+  } = useLogin();
+    const [showPassword, setShowPassword] = useState(false);
 
   return (
     <section className="loginContainer">
@@ -18,44 +26,37 @@ const Login = () => {
         <h1>
           <strong>LOGIN</strong>
         </h1>
-        <small>See your growth and consulting support</small>
       </div>
 
-      <form action="login">
-        <label htmlFor="Email">
-          Email
-          <input
-            className="inp"
-            type="email"
-            placeholder="Email"
-            value={_email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        <label htmlFor="Password">
-          Password
-          <input
-            className="inp"
-            type="password"
-            placeholder="Password"
-            value={_password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
+      <form onSubmit={(event) => loginHandler(event)}>
+        <label htmlFor="Email">Email</label>
         <input
-          className="submit"
-          type="submit"
-          value="Login"
-          onClick={(event) => loginHandler(event)}
+          className="inp"
+          type="email"
+          placeholder="Email"
+          value={_email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
         />
+        <label htmlFor="Password">Password</label>
         <input
-          className="submit"
-          type="submit"
-          onClick={(event) => dummyHandler(event)}
-          value="Login as Test Credential"
+          className="inp"
+          type={showPassword ? "text" : "password"}
+          placeholder="Password"
+          value={_password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
         />
+        <span
+          className="password-icon"
+          onClick={() => setShowPassword((prev) => !prev)}
+        >
+          {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+        </span>
+        <button className="submit" onClick={(event) => dummyHandler(event)}>
+          Login as Guest
+        </button>
+        <button className="submit">Login</button>
       </form>
       <p>
         Don't have an account?

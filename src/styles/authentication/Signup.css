@@ -9,6 +9,19 @@
   border: 1px solid var(--bg-color);
 }
 
+.signupContainer .password-icon {
+  cursor: pointer;
+  position: relative;
+  top: -2.7rem;
+  left: 13rem;
+  margin: 1rem;
+}
+
+.signupContainer .confirm-password {
+  position: relative;
+  left: -3rem;
+}
+
 .signupContainer .signin {
   border: 1px solid thistle;
   padding: 0.4rem 3rem;

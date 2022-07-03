@@ -6,7 +6,7 @@ import { useAuth } from "contexts";
 export const useLogin = () => {
   const [_email, setEmail] = useState("");
   const [_password, setPassword] = useState("");
-  const { setIsLoggedIn,setToken } = useAuth();
+  const { setIsLoggedIn, setToken } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -25,10 +25,15 @@ export const useLogin = () => {
     }
   };
 
-  const dummyHandler = (event) => {
+  const dummyHandler = async (event) => {
     event.preventDefault();
-    setEmail("arpitkumar@gmail.com");
-    setPassword("arpit1234");
+    const response = await axios.post("/api/auth/login", {
+      email: "arpitkumar@gmail.com",
+      password: "arpit1234",
+    });
+    setToken(response.data.encodedToken);
+    setIsLoggedIn(true);
+    navigate(location.state?.from?.pathname || "/product", { replace: true });
   };
 
   return {
